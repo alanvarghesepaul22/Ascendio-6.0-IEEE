@@ -1,5 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Nav from "../components/Nav";
+import { Spotlight } from "../components/ui/Spotlight";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +13,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="w-full rounded-md flex md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
+          <Spotlight
+            className="-top-40 left-0 md:left-60 md:-top-20"
+            fill="white"
+          />
+          <div className=" w-full dark:bg-black bg-white  dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex items-center justify-center">
+            {/* Radial gradient for the container to give a faded look */}
+            <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+            <div className="flex flex-col justify-center items-center">
+              <Nav />
+              {children}
+            </div>
+          </div>
+        </div>
+      </body>
     </html>
   );
 }
