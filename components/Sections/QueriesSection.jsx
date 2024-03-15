@@ -3,6 +3,7 @@ import React from "react";
 import { BackgroundBeams } from "../ui/background-beams";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
 import Link from "next/link";
+import { QueryData, queryContactEmail } from "../../utils/data";
 
 const QueriesSection = () => {
   return (
@@ -15,29 +16,21 @@ const QueriesSection = () => {
         <p className="text-neutral-500 max-w-lg mx-auto my-2 text-lg text-center relative z-10">
           Have queries regarding our event? Leave us a mail at
           <Link
-            href={"mailto:reachtascendio24@gmail.com"}
+            href={`mailto:${queryContactEmail}`}
             className="text-neutral-300 mx-2 hover:text-neutral-200"
           >
-            reachtascendio24@gmail.com
+            {queryContactEmail}
           </Link>
           or give us a call on the following numbers.
         </p>
         <div className="w-full flex gap-5 justify-center items-center mt-7 relative z-10 flex-wrap md:flex-nowrap">
-          <Link href="https://wa.me/+919745923317" target="_blank">
-            <div className="QueriesWtspBtn">
-              <IconBrandWhatsapp stroke={2} /> Alan Varghese
-            </div>
-          </Link>
-          <Link href="https://wa.me/+919745923317" target="_blank">
-            <div className="QueriesWtspBtn">
-              <IconBrandWhatsapp stroke={2} /> Ashwin Sivasankaran
-            </div>
-          </Link>
-          <Link href="https://wa.me/+919745923317" target="_blank">
-            <div className="QueriesWtspBtn">
-              <IconBrandWhatsapp stroke={2} /> Gokul Unni
-            </div>
-          </Link>
+          {QueryData.map((item, index) => (
+            <Link href={item.whatsappUrl} target="_blank" key={index}>
+              <div className="QueriesWtspBtn">
+                <IconBrandWhatsapp stroke={2} /> {item.name}
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
       <BackgroundBeams />

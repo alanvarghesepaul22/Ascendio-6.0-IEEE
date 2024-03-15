@@ -1,9 +1,7 @@
-'use client'
+"use client";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-
-// NOTE: Change this date to whatever date you want to countdown to :)
-const COUNTDOWN_FROM = "4/5/2024";
+import { COUNTDOWN_FROM } from "../../utils/data";
 
 const SECOND = 1000;
 const MINUTE = SECOND * 60;

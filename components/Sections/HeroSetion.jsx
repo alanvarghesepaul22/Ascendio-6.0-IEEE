@@ -35,7 +35,7 @@ const HeroSetion = () => {
             maxSize={1.4}
             particleDensity={100}
             className="w-full h-full"
-            particleColor="#202120"
+            particleColor="#42310d"
           />
         </div>
         <Boxes />

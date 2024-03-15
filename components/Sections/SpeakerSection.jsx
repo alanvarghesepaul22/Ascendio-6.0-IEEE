@@ -1,11 +1,9 @@
 "use client";
 import React from "react";
-import Sepaker1 from "/public/speaker1.jpeg";
-import Sepaker2 from "/public/speaker2.jpeg";
-import Sepaker3 from "/public/speaker3.jpeg";
 import JumpingCard from "../Common/JumpingCard";
 import { Spotlight } from "../ui/Spotlight";
 import MagicTitle from "../Common/MagicTitle";
+import { SpeakerData } from "../../utils/data";
 
 const SpeakerSection = () => {
   return (
@@ -18,21 +16,14 @@ const SpeakerSection = () => {
         <MagicTitle>Meet our Speakers</MagicTitle>
 
         <div className="flex gap-5 justify-center items-center mt-10 flex-wrap pb-10">
-          <JumpingCard
-            imageUrl={Sepaker1}
-            name="Alia Bhat"
-            designation="Actor"
-          />
-          <JumpingCard
-            imageUrl={Sepaker2}
-            name="Ashwin Sivasankaran"
-            designation="Public Speaker"
-          />
-          <JumpingCard
-            imageUrl={Sepaker3}
-            name="Gokul Unni"
-            designation="Secretary"
-          />
+          {SpeakerData.map((item, index) => (
+            <JumpingCard
+              key={index}
+              imageUrl={item.imageUrl}
+              name={item.name}
+              designation={item.designation}
+            />
+          ))}
         </div>
       </div>
     </div>
