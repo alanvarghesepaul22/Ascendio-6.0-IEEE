@@ -1,19 +1,20 @@
 "use client";
 import React from "react";
 import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
+import { VideoData } from "../../utils/data";
 
 const MovingVideo = () => {
   return (
     <div className="w-full flex flex-col antialiased items-center justify-center relative">
       <InfiniteMovingCards
-        items={data}
+        items={VideoData}
         direction="right"
         speed="slow"
         className=""
         mode="video"
       />
       <InfiniteMovingCards
-        items={data}
+        items={VideoData}
         direction="left"
         speed="slow"
         className=""
@@ -24,15 +25,3 @@ const MovingVideo = () => {
 };
 
 export default MovingVideo;
-
-const data = [
-  {
-    data: "./video.mp4",
-  },
-  {
-    data: "./video.mp4",
-  },
-  {
-    data: "./video.mp4",
-  },
-];
