@@ -5,7 +5,7 @@ import HeroLogo from "/public/HeroLogo.png";
 import Image from "next/image";
 import MovingBorderBtn from "../Buttons/MovingBorderBtn";
 import { CardContainer } from "../ui/3d-card";
-import useScreenSize from "../../hooks/useScreenSize";
+import useScreenSize from '../../hooks/useScreenSize.js'
 import { SparklesCore } from "../ui/sparkles";
 
 const HeroSetion = () => {
@@ -51,6 +51,7 @@ const HeroSetion = () => {
             width={500}
             height={500}
             className="w-[370px] h-[370px] md:w-[600px] md:h-[600px]"
+            priority
           />
         </CardContainer>
         <div className="absolute -mt-44 ml-48 sm:-mt-44 sm:ml-56 md:-mt-56 md:ml-96">
