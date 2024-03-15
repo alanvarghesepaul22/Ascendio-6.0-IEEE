@@ -31,3 +31,38 @@ body {
     text-wrap: balance;
   }
 }
+
+/* for Bubble text in about section */
+.hoverText {
+  transition: 0.35s font-weight, 0.35s color;
+}
+
+.hoverText:hover {
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+}
+
+/* To the right */
+.hoverText:hover + .hoverText {
+  font-weight: 600;
+  color: rgb(231, 231, 231);
+}
+
+.hoverText:hover + .hoverText + .hoverText {
+  font-weight: 300;
+}
+
+/* To the left */
+.hoverText:has(+ .hoverText:hover) {
+  font-weight: 600;
+  color: rgb(231, 231, 231);
+}
+
+.hoverText:has(+ .hoverText + .hoverText:hover) {
+  font-weight: 400;
+}
+
+
+.QueriesWtspBtn{
+  @apply w-56 rounded-full bg-neutral-900 flex justify-center items-center py-3 gap-3 hover:bg-neutral-800 cursor-pointer transition-all
+}
