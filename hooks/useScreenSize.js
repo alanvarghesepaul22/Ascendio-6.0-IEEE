@@ -1,16 +1,25 @@
+"use client";
 import { useState, useEffect } from "react";
 
 const useScreenSize = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); 
+  const isClient = typeof window === "object";
+
+  const [isMobile, setIsMobile] = useState(
+    isClient ? window.innerWidth <= 768 : false
+  );
 
   useEffect(() => {
+    if (!isClient) {
+      return;
+    }
+
     function handleResize() {
       setIsMobile(window.innerWidth <= 768);
     }
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [isClient]);
 
   return isMobile;
 };
