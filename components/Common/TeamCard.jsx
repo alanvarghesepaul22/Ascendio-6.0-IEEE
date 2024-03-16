@@ -5,7 +5,19 @@ import Image from "next/image";
 
 const TeamCard = ({ imageUrl, name, role }) => {
   return (
-    <div className="flex flex-col gap-4">
+    <motion.div
+      initial={{ scale: 0.8 }}
+      animate={{
+        scale: 1,
+        transition: {
+          duration: 1,
+          ease: "easeIn",
+          type: "spring",
+          stiffness: 150,
+        },
+      }}
+      className="flex flex-col gap-4"
+    >
       <motion.div
         whileHover={{ scale: 1.1 }}
         animate={{ scale: [1, 1.1, 1] }}
@@ -24,7 +36,7 @@ const TeamCard = ({ imageUrl, name, role }) => {
         <p>{name}</p>
         <p className="text-yellow-700">{role}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

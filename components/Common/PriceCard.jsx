@@ -1,11 +1,23 @@
-"use client"
+"use client";
 import React from "react";
 import { Meteors } from "../ui/meteors";
 import { motion } from "framer-motion";
 
 const PriceCard = () => {
   return (
-    <motion.div whileHover={{ scale: 1.05 }}>
+    <motion.div
+      initial={{ scale: 0.8 }}
+      animate={{
+        scale: 1,
+        transition: {
+          duration: 1,
+          ease: "easeIn",
+          type: "spring",
+          stiffness: 150,
+        },
+      }}
+      whileHover={{ scale: 1.05 }}
+    >
       <div className=" w-full relative max-w-xs">
         <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-yellow-400 to-yellow-800 transform scale-[0.70] bg-orange-200 rounded-full blur-3xl" />
         <div className="relative shadow-xl bg-neutral-950/90 border border-neutral-800  px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">

@@ -16,7 +16,7 @@ const Footer = () => {
               alt="IEEE Logo"
               width={500}
               height={500}
-              className="w-36 h-16"
+              className="w-[133px] h-[33px] md:w-[177px] md:h-[44px] opacity-70"
             />
           </div>
           <div className="w-3/4 md:w-full flex justify-center md:justify-start gap-4 items-center">
@@ -25,7 +25,7 @@ const Footer = () => {
               alt="SSET Logo"
               width={100}
               height={100}
-              className="w-16"
+              className="w-[62px] h-[62px]"
             />
             <div className="flex flex-col w-fit">
               <h1 className="text-xl font-semibold">SCMS</h1>
@@ -35,13 +35,13 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-3 md:gap-10 md:mr-14 text-neutral-500 text-lg mt-9 md:mt-0">
-          <div className="grid grid-cols-3 md:grid-cols-2 text-nowrap gap-x-10 gap-y-3">
+        <div className="flex flex-col md:flex-row gap-3 md:gap-10 md:mr-14 text-neutral-600 text-lg mt-9 md:mt-0">
+          <div className="grid grid-cols-3 text-nowrap gap-x-10 gap-y-3">
             {FooterItems.map((item, index) => (
               <Link
                 key={index}
                 href={item.link}
-                className="hover:text-neutral-200 transition-all"
+                className="hover:text-neutral-200 transition-all text-sm"
               >
                 {item.name}
               </Link>
@@ -51,10 +51,14 @@ const Footer = () => {
       </div>
 
       <div className="flex flex-col justify-center items-center">
-        <p className="text-neutral-600">© All rights reserved.</p>
+        <p className="text-neutral-500">© All rights reserved.</p>
         <div className="h-9 md:h-20">
-          <h1 className="text-5xl md:text-9xl font-extrabold text-neutral-800 cursor-none">
-            ASCENDIO
+          <h1 className="text-5xl md:text-9xl font-extrabold text-neutral-600 cursor-copy">
+            {"ASCENDIO".split("").map((child, idx) => (
+              <span className="hoverText" key={idx}>
+                {child}
+              </span>
+            ))}
           </h1>
         </div>
       </div>
