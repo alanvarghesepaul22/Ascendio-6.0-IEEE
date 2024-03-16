@@ -5,9 +5,19 @@ import React from "react";
 const WorkshopCard = ({ imageUrl, name, designation }) => {
   return (
     <motion.div
+      initial={{ scale: 0.8 }}
+      animate={{
+        scale: 1,
+        transition: {
+          duration: 1,
+          ease: "easeIn",
+          type: "spring",
+          stiffness: 150,
+        },
+      }}
       whileHover={{ y: -10 }}
       transition={{ type: "spring", stiffness: 300 }}
-      className="border border-neutral-500/[0.2] flex flex-col items-start max-w-sm mx-auto p-4 relative h-fit bg-neutral-950 shadow-md shadow-neutral-900/75"
+      className="border border-neutral-500/[0.2] flex flex-col items-start max-w-sm mx-auto p-4 relative h-fit bg-neutral-950"
     >
       <div className="w-72 h-64 sm:w-80 sm:h-[350px]">
         <Image

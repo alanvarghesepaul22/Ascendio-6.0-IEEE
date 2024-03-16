@@ -66,3 +66,13 @@ body {
 .QueriesWtspBtn{
   @apply w-56 rounded-full bg-neutral-900 flex justify-center items-center py-3 gap-3 hover:bg-neutral-800 cursor-pointer transition-all
 }
+
+::-webkit-scrollbar {
+	width: 5px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background: #100f0f;
+	border-radius: 12px 12px 12px 12px;
+	margin: 0px auto;
+}

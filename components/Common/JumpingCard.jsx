@@ -5,6 +5,16 @@ import Image from "next/image";
 const JumpingCard = ({ imageUrl, name, designation }) => {
   return (
     <motion.div
+      initial={{ scale: 0.8 }}
+      animate={{
+        scale: 1,
+        transition: {
+          duration: 1,
+          ease: "easeIn",
+          type: "spring",
+          stiffness: 150,
+        },
+      }}
       whileHover={{ y: -10 }}
       transition={{ type: "spring", stiffness: 300 }}
       className="bg-neutral-900/50 flex flex-col justify-center items-center rounded-lg"

@@ -39,14 +39,14 @@ export const MovingTextData = [
     data: "2024",
   },
   {
-    data: "APRIL 4-5",
+    data: "APRIL 6-7",
   },
 ];
 
 export const AboutText =
   " Oxygen gets you high. In a catastrophic emergency, we're taking giant, panicked breaths. Suddenly you become euphoric, docile. You accept your fate. It's all right here. Emergency water landing, six hundred miles an hour. Blank faces, calm as Hindu cows.";
 
-export const COUNTDOWN_FROM = "4/5/2024";
+export const COUNTDOWN_FROM = "4/6/2024";
 
 export const VideoData = [
   {
