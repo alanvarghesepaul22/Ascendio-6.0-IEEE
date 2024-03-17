@@ -1,9 +1,93 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Meteors } from "../ui/meteors";
 import { motion } from "framer-motion";
+import axios from "axios";
 
-const PriceCard = () => {
+const PriceCard = ({ amount }) => {
+  const razorpayKEY = process.env.NEXT_PUBLIC_RAZORPAY_KEY;
+  const [username,setUsername] = useState('')
+  const [email,setEmail] = useState('')
+  const [contact,setContact] = useState('')
+
+  const initializeRazorpay = () => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+
+      script.onload = () => {
+        resolve(true);
+      };
+      script.onerror = () => {
+        resolve(false);
+      };
+
+      document.body.appendChild(script);
+    });
+  };
+
+  const makePayment = async () => {
+    const res = await initializeRazorpay();
+    if (!res) {
+      alert("Razorpay SDK Failed to load");
+      return;
+    }
+    // Amount is in currency subunits. Hence, multiply by 100 to get the actual amount
+    // Make API call to the serverless API
+    console.log("amount", amount);
+    const response = await axios.post(`/api/createOrder`, {
+      amount
+    });
+    const data = response.data.order;
+    // setOrderID(data.id)
+
+    var options = {
+      key: razorpayKEY, // Enter the Key ID generated from the Dashboard
+      name: "Ascendio",
+      currency: data.currency,
+      amount: data.amount,
+      order_id: data.id,
+      description: "Thank you",
+      // image: "https://manuarora.in/logo.png",
+      handler: function (response) {
+        try{
+            const res  = axios.post(`/api/verifyOrder`, {
+            total: amount*100,
+            razorpay_payment_id: response.razorpay_payment_id,
+            razorpay_order_id: response.razorpay_order_id,
+          }).then(res => {
+            if(res.status === 200){
+              console.log("res mssg",res.data.message);
+              if (res.data.message === "Payment successful" && res.data.payment) {
+                // Redirect to the /ticket page
+                window.location.href = "/ticket";
+            }
+            }
+          })
+
+        }catch(err){
+          console.log("error",err);
+        }
+        
+      },
+      prefill: {
+        name:username,
+        email,
+        contact,
+      },
+      modal: {
+        ondismiss: function() {
+          console.log("closed");
+        },
+      },
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  };
+
+
+
   return (
     <motion.div
       initial={{ scale: 0.8 }}
@@ -48,9 +132,13 @@ const PriceCard = () => {
             unacceptable. Won&apos;t ChatGPT the shit out of this.
           </p>
 
-          <button className="border px-4 py-1 rounded-lg  border-neutral-500 text-neutral-200">
-            Explore
-          </button>
+          <div className="flex justify-between items-center w-full">
+            
+            <button onClick={makePayment} className="border px-4 py-1 rounded-lg  border-neutral-500 text-neutral-200">
+              BUY
+            </button>
+           <div className=" font-medium text-xl">{"₹" + amount}</div>
+          </div>
 
           {/* Meaty part - Meteor effect */}
           <Meteors number={20} />
