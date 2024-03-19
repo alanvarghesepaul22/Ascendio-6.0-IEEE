@@ -17,7 +17,7 @@ const JumpingCard = ({ imageUrl, name, designation }) => {
       }}
       whileHover={{ y: -10 }}
       transition={{ type: "spring", stiffness: 300 }}
-      className="bg-neutral-900/50 flex flex-col justify-center items-center rounded-lg"
+      className="bg-neutral-900/50 w-fit flex flex-col justify-center items-center rounded-lg"
     >
       <div className="w-72 h-64 sm:w-80 sm:h-[350px]">
         <Image

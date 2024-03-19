@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Meteors } from "../ui/meteors";
 import { motion } from "framer-motion";
 import axios from "axios";
+import Link from "next/link";
 
 const PriceCard = ({ amount }) => {
   const razorpayKEY = process.env.NEXT_PUBLIC_RAZORPAY_KEY;
@@ -134,9 +135,10 @@ const PriceCard = ({ amount }) => {
 
           <div className="flex justify-between items-center w-full">
             
-            <button onClick={makePayment} className="border px-4 py-1 rounded-lg  border-neutral-500 text-neutral-200">
+            {/* <button onClick={makePayment} className="border px-4 py-1 rounded-lg  border-neutral-500 text-neutral-200">
               BUY
-            </button>
+            </button> */}
+            <Link href={"/buy/submit-form"}>BUY</Link>
            <div className=" font-medium text-xl">{"₹" + amount}</div>
           </div>
 

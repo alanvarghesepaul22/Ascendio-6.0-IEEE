@@ -44,7 +44,7 @@ export const MovingTextData = [
 ];
 
 export const AboutText =
-  " Oxygen gets you high. In a catastrophic emergency, we're taking giant, panicked breaths. Suddenly you become euphoric, docile. You accept your fate. It's all right here. Emergency water landing, six hundred miles an hour. Blank faces, calm as Hindu cows.";
+  "Ascendio is the Techno-Cultural event of IEEE Student's Branch of SCMS School of Engineering & Technology conducted yearly. Its 6th edition, ASCENDIO 6.0 is on the dates: 6th and 7th of April, 2024. The  event consists of Workshops, Motivational sessions, Tech talks, Cultural programs, among some other shows and sessions...";
 
 export const COUNTDOWN_FROM = "4/6/2024";
 
@@ -62,59 +62,64 @@ export const VideoData = [
 
 export const QueryData = [
   {
-    whatsappUrl: "https://wa.me/+919745923317",
-    name: "Alan Varghese",
+    whatsappUrl: "https://wa.me/+918547775011",
+    name: "Ajal Krishna",
   },
   {
-    whatsappUrl: "https://wa.me/+919745923317",
-    name: "Ashwin Sivasankaran",
+    whatsappUrl: "https://wa.me/+918547134871",
+    name: "Meera",
   },
   {
-    whatsappUrl: "https://wa.me/+919745923317",
-    name: "Gokul Unni",
+    whatsappUrl: "https://wa.me/+917907863582",
+    name: "Sooraj S",
   },
 ];
 
-export const queryContactEmail = "reachtascendio24@gmail.com";
+export const queryContactEmail = "ascendio6.0@gmail.com";
 
 export const SpeakerData = [
   {
     imageUrl: Sepaker1,
-    name: "Alia Bhat",
-    designation: "Actor",
+    name: "GOKUL C M",
+    designation: "Founder & CEO, GADS LLP",
   },
   {
     imageUrl: Sepaker2,
-    name: "Ashwin Sivasankaran",
-    designation: "Public Speaker",
+    name: "DEVANAND A",
+    designation: "Co-Founder & COO,GADS LLP",
   },
   {
     imageUrl: Sepaker3,
-    name: "Gokul Unni",
-    designation: "Secretary",
+    name: "Senthil Nath",
+    designation: "Social Media Influencer",
+  },
+  {
+    imageUrl: Sepaker3,
+    name: "Latheef",
+    designation: "Psychologist",
   },
 ];
 
 export const WorkshopData = [
   {
     imageUrl: WS1,
-    name: "Workshop 1",
-    designation: "300 RS",
+    name: "Spark AR",
+    designation: "Akarsh",
   },
   {
     imageUrl: WS2,
-    name: "Workshop 2",
-    designation: "400 RS",
+    name: "Big Data",
+    designation: "Meghana",
   },
   {
     imageUrl: WS3,
-    name: "Workshop 3",
-    designation: "100 RS",
+    name: "Drone",
+    designation: "Indrajith",
   },
   {
     imageUrl: WS4,
-    name: "Workshop 4",
-    designation: "30 RS",
+    name: "Section Level Coding Competition",
+    designation: "IEEE SSET Team",
   },
 ];
 
