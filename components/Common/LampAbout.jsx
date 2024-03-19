@@ -3,12 +3,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { LampContainer } from "../ui/lamp";
 import { AboutText } from "../../utils/data";
-import { Italiana,New_Tegomin,Big_Shoulders_Inline_Text,Yatra_One,Red_Rose } from "next/font/google";
+import { Bai_Jamjuree } from "next/font/google";
 
-
-const fontStyle = Italiana({
+const fontStyle = Bai_Jamjuree({
   subsets: ["latin"],
-  weight:'400'
+  weight: "400",
 });
 
 const LampAbout = () => {
@@ -22,7 +21,7 @@ const LampAbout = () => {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="w-4/5 break-words mt-8 text-neutral-300 font-light text-center text-2xl md:text-3xl"
+        className="text-justify w-full px-3 md:w-4/5 break-words mt-8 text-neutral-300/75 font-light  text-2xl md:text-3xl "
       >
         {AboutText.split("").map((child, idx) => (
           <span className={`${fontStyle.className}`} key={idx}>

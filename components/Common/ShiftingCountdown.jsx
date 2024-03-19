@@ -45,7 +45,7 @@ const ShiftingCountdown = () => {
   };
 
   return (
-    <div className="w-full p-1 bg-neutral-950  pb-10">
+    <div className="w-full bg-neutral-950 pb-10">
       <div className="w-full max-w-5xl mx-auto flex items-center">
         <CountdownItem num={remaining.days} text="days" />
         <CountdownItem num={remaining.hours} text="hours" />

@@ -4,11 +4,27 @@ import PriceCard from "../Common/PriceCard";
 const BuySection = () => {
   return (
     <div className="h-full w-full flex justify-center items-center gap-8 flex-wrap mt-10">
-      <PriceCard amount={100}/>
+      <PriceCard
+        amount={100}
+        title={"IEEE Members"}
+        description={
+          "All IEEE Members with currently active membership can buy this ticket."
+        }
+      />
       <div className="lg:scale-110">
-        <PriceCard amount={150}/>
+        <PriceCard
+          amount={150}
+          title={"Non-IEEE Members"}
+          description={
+            "All Non-IEEE Members with currently active membership can buy this ticket."
+          }
+        />
       </div>
-      <PriceCard amount={200}/>
+      <PriceCard
+        amount={200}
+        title={"Early Birds"}
+        description={"Book your tickets"}
+      />
     </div>
   );
 };

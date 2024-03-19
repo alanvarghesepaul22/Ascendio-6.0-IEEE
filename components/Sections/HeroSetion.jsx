@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Boxes } from "../ui/background-boxes";
+// import { Boxes } from "../ui/background-boxes";
 import HeroLogo from "/public/HeroLogo.png";
 import Image from "next/image";
 import MovingBorderBtn from "../Buttons/MovingBorderBtn";
@@ -39,7 +39,7 @@ const HeroSetion = () => {
               particleColor="#f9ab02"
             />
           </div>
-          <Boxes />
+          {/* <Boxes /> */}
         </>
       )}
 

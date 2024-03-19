@@ -38,41 +38,60 @@ body {
 }
 
 .hoverText:hover {
-  font-weight: 900;
+  /* font-weight: 900; */
   color: rgb(255, 255, 255);
 }
 
 /* To the right */
 .hoverText:hover + .hoverText {
-  font-weight: 600;
+  /* font-weight: 600; */
   color: rgb(231, 231, 231);
 }
 
 .hoverText:hover + .hoverText + .hoverText {
-  font-weight: 300;
+  /* font-weight: 300; */
+  color: rgb(172, 172, 172);
 }
 
 /* To the left */
 .hoverText:has(+ .hoverText:hover) {
-  font-weight: 600;
+  /* font-weight: 600; */
   color: rgb(231, 231, 231);
 }
 
 .hoverText:has(+ .hoverText + .hoverText:hover) {
-  font-weight: 400;
+  /* font-weight: 400; */
+  color: rgb(172, 172, 172);
 }
 
-
-.QueriesWtspBtn{
-  @apply w-56 rounded-full bg-neutral-900 flex justify-center items-center py-3 gap-3 hover:bg-neutral-800 cursor-pointer transition-all
+.QueriesWtspBtn {
+  @apply w-56 rounded-full bg-neutral-900 flex justify-center items-center py-3 gap-3 hover:bg-neutral-800 cursor-pointer transition-all;
 }
 
 ::-webkit-scrollbar {
-	width: 5px;
+  width: 5px;
   background-color: transparent;
 }
 ::-webkit-scrollbar-thumb {
-	background: #100f0f;
-	border-radius: 12px 12px 12px 12px;
-	margin: 0px auto;
+  background: #100f0f;
+  border-radius: 12px 12px 12px 12px;
+  margin: 0px auto;
+}
+
+.RadioBtnContainer {
+  @apply w-full pr-3 flex items-center h-9 bg-zinc-800 rounded-md shadow-[0px_0px_1px_1px_var(--neutral-700)];
+}
+.RadioInputContainer {
+  @apply relative flex items-center p-3 rounded-full cursor-pointer;
+}
+.RadioBtnSvg {
+  @apply absolute transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100;
+}
+
+.RadioLabelContainer {
+  @apply font-light cursor-pointer select-none -mt-[2px];
+}
+
+.RadioLabelContainerP {
+  @apply block font-sans text-base antialiased font-normal leading-relaxed;
 }
