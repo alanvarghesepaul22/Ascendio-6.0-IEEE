@@ -12,6 +12,7 @@ const WorkshopSection = () => {
           imageUrl={item.imageUrl}
           name={item.name}
           designation={item.designation}
+          description={item.description}
         />
       ))}
     </div>

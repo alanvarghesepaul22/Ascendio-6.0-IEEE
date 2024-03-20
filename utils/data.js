@@ -91,23 +91,38 @@ export const queryContactEmail = "ascendio6.0@gmail.com";
 export const SpeakerData = [
   {
     imageUrl: Sepaker1,
-    name: "GOKUL C M",
+    name: "Gokul C M",
     designation: "Founder & CEO, GADS LLP",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis odit,sapiente eligendi culpa incidunt error rerum iste aut delenit dolorem, assumenda quo excepturi sequi nobis minus id molestias numquam! Ullam!",
   },
   {
     imageUrl: Sepaker2,
-    name: "DEVANAND A",
+    name: "Devanand A",
     designation: "Co-Founder & COO,GADS LLP",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis odit,sapiente eligendi culpa incidunt error rerum iste aut delenit dolorem, assumenda quo excepturi sequi nobis minus id molestias numquam! Ullam!",
   },
   {
     imageUrl: Sepaker3,
     name: "Senthil Nath",
     designation: "Social Media Influencer",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis odit,sapiente eligendi culpa incidunt error rerum iste aut delenit dolorem, assumenda quo excepturi sequi nobis minus id molestias numquam! Ullam!",
   },
   {
     imageUrl: Sepaker3,
     name: "Latheef",
     designation: "Psychologist",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis odit,sapiente eligendi culpa incidunt error rerum iste aut delenit dolorem, assumenda quo excepturi sequi nobis minus id molestias numquam! Ullam!",
+  },
+  {
+    imageUrl: Sepaker2,
+    name: "Akarsh Ashok",
+    designation: "⁠Research Associate, Amrita Vishwa Vidyapeetham Coimbatore",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis odit,sapiente eligendi culpa incidunt error rerum iste aut delenit dolorem, assumenda quo excepturi sequi nobis minus id molestias numquam! Ullam!",
   },
 ];
 
@@ -116,21 +131,29 @@ export const WorkshopData = [
     imageUrl: WS1,
     name: "Spark AR",
     designation: "Akarsh",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis odit,sapiente eligendi culpa incidunt error rerum iste aut delenit dolorem, assumenda quo excepturi sequi nobis minus id molestias numquam! Ullam!",
   },
   {
     imageUrl: WS2,
     name: "Big Data",
     designation: "Meghana",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis odit,sapiente eligendi culpa incidunt error rerum iste aut delenit dolorem, assumenda quo excepturi sequi nobis minus id molestias numquam! Ullam!",
   },
   {
     imageUrl: WS3,
     name: "Drone",
     designation: "Indrajith",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis odit,sapiente eligendi culpa incidunt error rerum iste aut delenit dolorem, assumenda quo excepturi sequi nobis minus id molestias numquam! Ullam!",
   },
   {
     imageUrl: WS4,
     name: "Section Level Coding Competition",
     designation: "IEEE SSET Team",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis odit,sapiente eligendi culpa incidunt error rerum iste aut delenit dolorem, assumenda quo excepturi sequi nobis minus id molestias numquam! Ullam!",
   },
 ];
 
