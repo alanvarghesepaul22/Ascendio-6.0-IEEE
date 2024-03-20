@@ -11,6 +11,19 @@ import RadioBtn, { RadioBtnContainer } from "../Buttons/RadioBtn";
 const RadionInput =
   "before:content[''] peer relative h-4 w-4 cursor-pointer appearance-none rounded-full border border-zinc-700  p-0  transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-100 checked:before:bg-gray-100 hover:before:opacity-0";
 
+function generateTicketId(length) {
+  const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let ticketId = '';
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * charset.length);
+    ticketId += charset[randomIndex];
+  }
+
+  return ticketId;
+}
+
+
 export function Form() {
   const searchParams = useSearchParams();
 
@@ -89,9 +102,12 @@ export function Form() {
               razorpay_order_id: response.razorpay_order_id,
             })
             .then((res) => {
-              if (res.status === 200) {
-                console.log("res mssg", res.data.message);
-                axios.post("/api/send", { email, firstname, amount, formData });
+              if (res.status == 200 && res.data.message == 'Payment successful') {
+                console.log("res.status",res.status,"res.data.message",res.data.message);
+                const ticketId = generateTicketId(8); 
+                console.log("ticker",ticketId);
+                axios.post("/api/send", { amount, formData, ticketId, email }).then((res)=>console.log(res))
+                axios.post("/api/submit", { formData }).then((res)=>console.log(res))
               }
             });
         } catch (err) {
@@ -239,7 +255,7 @@ export function Form() {
           <RadioBtnContainer className={"grid-cols-3"}>
             <RadioBtn Label={"S"} htmlFor={"tsize1"}>
               <input
-                name="tsize"
+                name="tshirt"
                 id="tsize1"
                 type="radio"
                 value={"S"}
@@ -248,7 +264,7 @@ export function Form() {
             </RadioBtn>
             <RadioBtn Label={"M"} htmlFor={"tsize2"}>
               <input
-                name="tsize"
+                name="tshirt"
                 id="tsize2"
                 type="radio"
                 value={"M"}
@@ -257,7 +273,7 @@ export function Form() {
             </RadioBtn>
             <RadioBtn Label={"L"} htmlFor={"tsize3"}>
               <input
-                name="tsize"
+                name="tshirt"
                 id="tsize3"
                 type="radio"
                 value={"L"}
@@ -266,7 +282,7 @@ export function Form() {
             </RadioBtn>
             <RadioBtn Label={"XL"} htmlFor={"tsize4"}>
               <input
-                name="tsize"
+                name="tshirt"
                 id="tsize4"
                 type="radio"
                 value={"XL"}
@@ -275,7 +291,7 @@ export function Form() {
             </RadioBtn>
             <RadioBtn Label={"XXL"} htmlFor={"tsize5"}>
               <input
-                name="tsize"
+                name="tshirt"
                 id="tsize5"
                 type="radio"
                 value={"XXL"}
