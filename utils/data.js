@@ -48,15 +48,26 @@ export const AboutText =
 
 export const COUNTDOWN_FROM = "4/6/2024";
 
-export const VideoData = [
+export const VideoDataScroll1 = [
   {
-    data: "./video.mp4",
+    data: "./vid1.mp4",
   },
   {
-    data: "./video.mp4",
+    data: "./vid2.mp4",
   },
   {
-    data: "./video.mp4",
+    data: "./vid3.mp4",
+  },
+];
+export const VideoDataScroll2 = [
+  {
+    data: "./vid4.mp4",
+  },
+  {
+    data: "./vid5.mp4",
+  },
+  {
+    data: "./vid6.mp4",
   },
 ];
 
