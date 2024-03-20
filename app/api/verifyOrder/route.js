@@ -29,7 +29,6 @@ export async function POST(request) {
       currency === "INR" &&
       order_id === razorpay_order_id;
 
-    console.log("Payment verification status:", result);
     if (result) {
         return NextResponse.json({ message: "Payment successful", payment: true }, { status: 200 });
     } else {
