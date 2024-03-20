@@ -116,7 +116,7 @@ export const InfiniteMovingCards = ({
               <video
                 autoPlay
                 muted
-                preload=""
+                preload="auto"
                 loop
                 src={item.data}
                 className="w-full h-full object-contain"
