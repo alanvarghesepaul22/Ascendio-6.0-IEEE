@@ -1,11 +1,11 @@
-import Sepaker1 from "/public/speaker1.jpeg";
-import Sepaker2 from "/public/speaker2.jpeg";
-import Sepaker3 from "/public/speaker3.jpeg";
+import Sepaker1 from "/public/halo.jpg";
+import Sepaker2 from "/public/halo.jpg";
+import Sepaker3 from "/public/halo.jpg";
 
-import WS1 from "/public/ws1.jpg";
-import WS2 from "/public/ws2.jpg";
-import WS3 from "/public/ws3.jpeg";
-import WS4 from "/public/ws4.jpg";
+import WS1 from "/public/halo.jpg";
+import WS2 from "/public/halo.jpg";
+import WS3 from "/public/halo.jpg";
+import WS4 from "/public/halo.jpg";
 
 import Team1 from "/public/team1.jpeg";
 import Team2 from "/public/team2.jpeg";
@@ -95,6 +95,7 @@ export const SpeakerData = [
     designation: "Founder & CEO, GADS LLP",
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis odit,sapiente eligendi culpa incidunt error rerum iste aut delenit dolorem, assumenda quo excepturi sequi nobis minus id molestias numquam! Ullam!",
+    linkedinUrl: "/",
   },
   {
     imageUrl: Sepaker2,
@@ -102,6 +103,7 @@ export const SpeakerData = [
     designation: "Co-Founder & COO,GADS LLP",
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis odit,sapiente eligendi culpa incidunt error rerum iste aut delenit dolorem, assumenda quo excepturi sequi nobis minus id molestias numquam! Ullam!",
+    linkedinUrl: "/",
   },
   {
     imageUrl: Sepaker3,
@@ -109,6 +111,7 @@ export const SpeakerData = [
     designation: "Social Media Influencer",
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis odit,sapiente eligendi culpa incidunt error rerum iste aut delenit dolorem, assumenda quo excepturi sequi nobis minus id molestias numquam! Ullam!",
+    linkedinUrl: "/",
   },
   {
     imageUrl: Sepaker3,
@@ -116,6 +119,7 @@ export const SpeakerData = [
     designation: "Psychologist",
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis odit,sapiente eligendi culpa incidunt error rerum iste aut delenit dolorem, assumenda quo excepturi sequi nobis minus id molestias numquam! Ullam!",
+    linkedinUrl: "/",
   },
   {
     imageUrl: Sepaker2,
@@ -123,6 +127,7 @@ export const SpeakerData = [
     designation: "⁠Research Associate, Amrita Vishwa Vidyapeetham Coimbatore",
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis odit,sapiente eligendi culpa incidunt error rerum iste aut delenit dolorem, assumenda quo excepturi sequi nobis minus id molestias numquam! Ullam!",
+    linkedinUrl: null,
   },
 ];
 

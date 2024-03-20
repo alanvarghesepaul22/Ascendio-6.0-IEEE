@@ -17,7 +17,7 @@ const WorkshopCard = ({ imageUrl, name, designation, description }) => {
       }}
       whileHover={{ y: -10 }}
       transition={{ type: "spring", stiffness: 300 }}
-      className="border w-[380px] border-neutral-500/[0.2] flex flex-col items-start mx-auto p-4 relative bg-neutral-950"
+      className="border w-80 h-auto border-neutral-500/[0.2] flex flex-col items-start mx-auto rounded-lg relative bg-neutral-950"
     >
       <div className="w-full h-full relative">
         <Image
@@ -25,7 +25,7 @@ const WorkshopCard = ({ imageUrl, name, designation, description }) => {
           alt=""
           height={500}
           width={500}
-          className="h-[390px] w-[380px] rounded"
+          className="h-full w-full rounded"
         />
         <motion.div
           initial={{ opacity: 0, height: 0 }}
@@ -34,17 +34,17 @@ const WorkshopCard = ({ imageUrl, name, designation, description }) => {
           transition={{ duration: 0.3 }}
           className="absolute bottom-0 left-0 w-full bg-neutral-950/50 p-4"
         >
-          <div className="w-fit">
-            <p className="text-xl font-medium">About the speaker</p>
+          <div className="w-fit text-neutral-200">
+            <p className="text-xl font-medium">About the workshop</p>
             <div className="w-full h-px rounded-lg bg-neutral-300"></div>
           </div>
 
-          <p className="text-neutral-50 mt-3">{description}</p>
+          <p className="mt-3 font-light text-base">{description}</p>
         </motion.div>
       </div>
       <div className="w-full h-full flex flex-col justify-start p-4">
-        <h1 className="text-lg font-semibold text-neutral-300">{name}</h1>
-        <p className="w-full text-neutral-400 text-wrap">{designation}</p>
+        <h1 className="text-lg font-medium text-neutral-300">{name}</h1>
+        <p className="w-full text-neutral-400 text-sm">{designation}</p>
       </div>
     </motion.div>
   );

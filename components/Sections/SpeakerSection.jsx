@@ -14,8 +14,6 @@ const SpeakerSection = () => {
       />
       <div className="w-full pt-20 mt-10 sm:mt-20 md:mt-10 flex flex-col items-center">
         <MagicTitle>Meet our Speakers</MagicTitle>
-
-        {/* <div className="flex gap-5 justify-center items-center mt-10 flex-wrap pb-10"> */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10 pb-10">
           {SpeakerData.map((item, index) => (
             <JumpingCard
@@ -24,6 +22,7 @@ const SpeakerSection = () => {
               name={item.name}
               designation={item.designation}
               description={item.description}
+              linkedinUrl={item.linkedinUrl}
             />
           ))}
         </div>

@@ -20,14 +20,14 @@ const MovingText = () => {
         items={MovingTextData}
         direction="right"
         speed="fast"
-        className="text-yellow-400 text-5xl md:text-6xl font-bold "
+        className="text-yellow-600 text-4xl md:text-5xl font-bold "
         mode="text"
       />
       <InfiniteMovingCards
         items={MovingTextData}
         direction="left"
         speed="fast"
-        className="text-orange-400 text-5xl md:text-6xl font-bold z-30"
+        className="text-orange-800 text-4xl md:text-5xl font-bold z-30"
         mode="text"
       />
     </motion.div>

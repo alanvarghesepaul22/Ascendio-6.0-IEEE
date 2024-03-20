@@ -22,7 +22,7 @@ const LampAbout = () => {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="h-screen flex items-center text-justify w-full px-3 md:w-4/5 break-words mt-8 text-neutral-300/75 font-light text-2xl md:text-3xl"
+        className="h-screen flex items-center text-justify w-full px-3 md:w-4/5 break-words mt-8 text-neutral-300/75 font-light"
       >
         <span className={`${fontStyle.className}`}>
           <TextGenerateEffect words={AboutText} />
