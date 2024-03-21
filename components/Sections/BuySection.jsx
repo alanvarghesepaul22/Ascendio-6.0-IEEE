@@ -5,7 +5,7 @@ const BuySection = () => {
   return (
     <div className="h-full w-full flex justify-center items-center gap-8 flex-wrap mt-10">
       <PriceCard
-        amount={100}
+        amount={1500}
         title={"IEEE Members"}
         description={
           "All IEEE Members with currently active membership can buy this ticket."
@@ -13,7 +13,7 @@ const BuySection = () => {
       />
       <div className="lg:scale-110">
         <PriceCard
-          amount={150}
+          amount={1600}
           title={"Non-IEEE Members"}
           description={
             "All Non-IEEE Members with currently active membership can buy this ticket."
@@ -21,7 +21,7 @@ const BuySection = () => {
         />
       </div>
       <PriceCard
-        amount={200}
+        amount={1300}
         title={"Early Birds"}
         description={"Book your tickets"}
       />

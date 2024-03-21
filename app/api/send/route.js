@@ -13,9 +13,10 @@ export async function POST(request) {
       subject: 'Confirmation: IEEE Ascendio 6.0 Ticket Purchase',
       react: EmailTemplate({ formData, amount, ticketId }),
     });
-
+    console.log(data);
     return Response.json(data);
   } catch (error) {
+    console.log(error);
     return Response.json({ error });
   }
 }

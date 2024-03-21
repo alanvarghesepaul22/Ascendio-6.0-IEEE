@@ -11,9 +11,56 @@ import {
 } from "@react-email/components";
 import * as React from "react";
 
+interface PlaidVerifyIdentityEmailProps {
+  validationCode?: string;
+}
 
+const baseUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : "";
 
-const ma = {
+export const PlaidVerifyIdentityEmail = ({
+  validationCode,
+}: PlaidVerifyIdentityEmailProps) => (
+  <Html>
+    <Head />
+    <Body style={main}>
+      <Container style={container}>
+        <Img
+          src={`${baseUrl}/static/plaid-logo.png`}
+          width="212"
+          height="88"
+          alt="Plaid"
+          style={logo}
+        />
+        <Text style={tertiary}>Verify Your Identity</Text>
+        <Heading style={secondary}>
+          Enter the following code to finish linking Venmo.
+        </Heading>
+        <Section style={codeContainer}>
+          <Text style={code}>{validationCode}</Text>
+        </Section>
+        <Text style={paragraph}>Not expecting this email?</Text>
+        <Text style={paragraph}>
+          Contact{" "}
+          <Link href="mailto:login@plaid.com" style={link}>
+            login@plaid.com
+          </Link>{" "}
+          if you did not request this code.
+        </Text>
+      </Container>
+      <Text style={footer}>Securely powered by Plaid.</Text>
+    </Body>
+  </Html>
+);
+
+PlaidVerifyIdentityEmail.PreviewProps = {
+  validationCode: "144833",
+} as PlaidVerifyIdentityEmailProps;
+
+export default PlaidVerifyIdentityEmail;
+
+const main = {
   backgroundColor: "#ffffff",
   fontFamily: "HelveticaNeue,Helvetica,Arial,sans-serif",
 };
@@ -42,8 +89,8 @@ const tertiary = {
   letterSpacing: "0",
   lineHeight: "16px",
   margin: "16px 8px 8px 8px",
-  textTransform: "uppercase",
-  textAlign: "center",
+  textTransform: "uppercase" as const,
+  textAlign: "center" as const,
 };
 
 const secondary = {
@@ -55,7 +102,7 @@ const secondary = {
   lineHeight: "24px",
   marginBottom: "0",
   marginTop: "0",
-  textAlign: "center",
+  textAlign: "center" as const,
 };
 
 const codeContainer = {
@@ -78,7 +125,7 @@ const code = {
   paddingTop: "8px",
   margin: "0 auto",
   width: "100%",
-  textAlign: "center",
+  textAlign: "center" as const,
 };
 
 const paragraph = {
@@ -89,7 +136,7 @@ const paragraph = {
   lineHeight: "23px",
   padding: "0 40px",
   margin: "0",
-  textAlign: "center",
+  textAlign: "center" as const,
 };
 
 const link = {
@@ -106,40 +153,6 @@ const footer = {
   margin: "0",
   marginTop: "20px",
   fontFamily: "HelveticaNeue,Helvetica,Arial,sans-serif",
-  textAlign: "center",
-  textTransform: "uppercase",
+  textAlign: "center" as const,
+  textTransform: "uppercase" as const,
 };
-
-
-export const EmailTemplate = ({formData, amount, ticketId}) => (
-  <Html>
-    <Head />
-    <Body style={ma}>
-      <Container style={container}>
-        {/* <Img
-          src={`https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?size=338&ext=jpg&ga=GA1.1.735520172.1710918000&semt=sph`}
-          width="212"
-          height="88"
-          alt="Plaid"
-          style={logo}
-        /> */}
-        <Text style={tertiary}>Verify Your Identity</Text>
-        <Heading style={secondary}>
-          Enter the following code to finish linking Venmo.
-        </Heading>
-        <Section style={codeContainer}>
-          <Text style={code}>{ticketId}</Text>
-        </Section>
-        <Text style={paragraph}>Not expecting this email?</Text>
-        <Text style={paragraph}>
-          Contact{" "}
-          <Link href="mailto:login@plaid.com" style={link}>
-            login@plaid.com
-          </Link>{" "}
-          if you did not request this code.
-        </Text>
-      </Container>
-      <Text style={footer}>Securely powered by Plaid.</Text>
-    </Body>
-  </Html>
-);

@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.0.2",
+    "@react-email/components": "^0.0.15",
+    "@react-email/tailwind": "^0.0.14",
     "@tabler/icons-react": "^3.0.3",
     "@tsparticles/engine": "^3.3.0",
     "@tsparticles/react": "^3.0.0",
