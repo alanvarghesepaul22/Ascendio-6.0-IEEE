@@ -49,7 +49,7 @@ export async function POST(request) {
             formData.email,
             formData.mobnum,
             formData.clgname,
-            formData.ieeeid,
+            formData?.ieeeid,
             formData.wrksp,
             formData.food,
             formData.tshirt,

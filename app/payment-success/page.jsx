@@ -26,10 +26,10 @@ const page = () => {
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Link
-            href="/"
+            href="/buy"
             className="rounded-md bg-neutral-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-600"
           >
-            Go back home
+            Buy Again
           </Link>
           <Link
             href={`mailto:${queryContactEmail}`}

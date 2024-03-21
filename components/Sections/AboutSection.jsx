@@ -5,7 +5,7 @@ import ShiftingCountdown from "../Common/ShiftingCountdown";
 
 const AboutSection = () => {
   return (
-    <div className="h-screen relative w-full overflow-hidden  flex flex-col items-center justify-center bg-neutral-950">
+    <div className="h-screen relative w-full overflow-hidden  flex flex-col items-center justify-center ">
       <MovingText />
       <LampAbout />
       <ShiftingCountdown />

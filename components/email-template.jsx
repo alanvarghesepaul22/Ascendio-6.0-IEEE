@@ -10,6 +10,7 @@ import {
   Text,
 } from "@react-email/components";
 import * as React from "react";
+import { queryContactEmail } from "../utils/data";
 
 
 
@@ -48,7 +49,6 @@ const tertiary = {
 
 const secondary = {
   color: "#000",
-  display: "inline-block",
   fontFamily: "HelveticaNeue-Medium,Helvetica,Arial,sans-serif",
   fontSize: "20px",
   fontWeight: 500,
@@ -56,6 +56,7 @@ const secondary = {
   marginBottom: "0",
   marginTop: "0",
   textAlign: "center",
+  margin: "0 auto",
 };
 
 const codeContainer = {
@@ -116,30 +117,27 @@ export const EmailTemplate = ({formData, amount, ticketId}) => (
     <Head />
     <Body style={ma}>
       <Container style={container}>
-        {/* <Img
-          src={`https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?size=338&ext=jpg&ga=GA1.1.735520172.1710918000&semt=sph`}
-          width="212"
-          height="88"
-          alt="Plaid"
+        <Img
+          src={"https://i.ibb.co/0FH6XMb/ascendio-6-0.png"}
+          width="160"
+          alt="Ascendio Logo"
           style={logo}
-        /> */}
-        <Text style={tertiary}>Verify Your Identity</Text>
-        <Heading style={secondary}>
-          Enter the following code to finish linking Venmo.
-        </Heading>
+        />
+      <Text style={tertiary}>Confirmation: ₹{amount} Successfully Processed</Text>
+        <p style={secondary}>Your ticket has been booked!</p>
         <Section style={codeContainer}>
           <Text style={code}>{ticketId}</Text>
         </Section>
-        <Text style={paragraph}>Not expecting this email?</Text>
+        <Text style={paragraph}>Thank you for choosing our event.</Text>
         <Text style={paragraph}>
-          Contact{" "}
-          <Link href="mailto:login@plaid.com" style={link}>
-            login@plaid.com
-          </Link>{" "}
-          if you did not request this code.
+          If you have any questions or need further assistance, feel free to
+          contact us at {" "}
+          <Link href={`mailto:${queryContactEmail}`} style={link}>
+            { queryContactEmail}
+          </Link>
         </Text>
       </Container>
-      <Text style={footer}>Securely powered by Plaid.</Text>
+      <Text style={footer}>Ascendio Team.</Text>
     </Body>
   </Html>
 );

@@ -1,5 +1,6 @@
 import React from "react";
 import PriceCard from "../Common/PriceCard";
+import SoldPriceCard from "../Common/SoldPriceCard";
 
 const BuySection = () => {
   return (
@@ -20,11 +21,19 @@ const BuySection = () => {
           }
         />
       </div>
-      <PriceCard
-        amount={1300}
-        title={"Early Birds"}
-        description={"Book your tickets"}
-      />
+      {false ? (
+        <SoldPriceCard
+          amount={1300}
+          title={"Early Birds"}
+          description={"Book your tickets"}
+        />
+      ) : (
+        <PriceCard
+          amount={1300}
+          title={"Early Birds"}
+          description={"Book your tickets"}
+        />
+      )}
     </div>
   );
 };

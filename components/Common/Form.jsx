@@ -45,6 +45,8 @@ export function Form() {
     food: "",
     tshirt: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [redirectLoading, setRedirectLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -73,6 +75,7 @@ export function Form() {
   };
 
   const makePayment = async () => {
+    setLoading(true);
     const res = await initializeRazorpay();
     if (!res) {
       alert("Razorpay SDK Failed to load");
@@ -124,6 +127,7 @@ export function Form() {
             });
         } catch (err) {
           console.log("error", err);
+        } finally {
         }
       },
       prefill: {
@@ -140,187 +144,231 @@ export function Form() {
 
     const paymentObject = new window.Razorpay(options);
     paymentObject.open();
+    setRedirectLoading(true);
+    setLoading(false);
   };
+  //
 
   return (
-    <div className="max-w-xl w-full mx-auto rounded-none md:rounded-2xl px-8 md:p-8 shadow-input">
-      <h2 className="font-bold text-2xl text-neutral-800 dark:text-neutral-200 text-center">
-        Book your Tickets
-      </h2>
-      <p className="text-neutral-600 text-sm  mt-2 dark:text-neutral-300 text-center">
-        Please fill this form so that we can confirm your tickets.
-      </p>
-      {/* <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-3 h-[1px] w-full" /> */}
+    <div>
+      {!redirectLoading ? (
+        <div className="max-w-xl w-full mx-auto rounded-none md:rounded-2xl px-8 md:p-8 shadow-input">
+          <h2 className="font-bold text-2xl text-neutral-800 dark:text-neutral-200 text-center">
+            Book your Tickets
+          </h2>
+          <p className="text-neutral-600 text-sm  mt-2 dark:text-neutral-300 text-center">
+            Please fill this form so that we can confirm your tickets.
+          </p>
+          {/* <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-3 h-[1px] w-full" /> */}
 
-      <form className="my-8" onSubmit={handleSubmit} onChange={handleChange}>
-        <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
-          <LabelInputContainer>
-            <Label htmlFor="firstname">First name</Label>
-            <Input
-              name="firstname"
-              value={firstname}
-              onChange={(e) => setFirstname(e.target.value)}
-              id="firstname"
-              type="text"
-              placeholder="Your first name here"
-            />
-          </LabelInputContainer>
-          <LabelInputContainer>
-            <Label htmlFor="lastname">Last name</Label>
-            <Input
-              name="lastname"
-              id="lastname"
-              type="text"
-              placeholder="Your last name here"
-            />
-          </LabelInputContainer>
+          <form
+            className="my-8"
+            onSubmit={handleSubmit}
+            onChange={handleChange}
+          >
+            <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
+              <LabelInputContainer>
+                <Label htmlFor="firstname">First name</Label>
+                <Input
+                  name="firstname"
+                  value={firstname}
+                  onChange={(e) => setFirstname(e.target.value)}
+                  id="firstname"
+                  type="text"
+                  placeholder="Your first name here"
+                  required
+                />
+              </LabelInputContainer>
+              <LabelInputContainer>
+                <Label htmlFor="lastname">Last name</Label>
+                <Input
+                  name="lastname"
+                  id="lastname"
+                  type="text"
+                  placeholder="Your last name here"
+                  required
+                />
+              </LabelInputContainer>
+            </div>
+            <LabelInputContainer className="mb-4">
+              <Label htmlFor="email">Email Address</Label>
+              <Input
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                id="email"
+                placeholder="Your email here"
+                type="email"
+                required
+              />
+            </LabelInputContainer>
+            <LabelInputContainer className="mb-4">
+              <Label htmlFor="mobnum">Mobile No. (Preferebly Whatsapp) </Label>
+              <Input
+                name="mobnum"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                id="mobnum"
+                type="text"
+                placeholder="Your mobile number here"
+                required
+              />
+            </LabelInputContainer>
+            <LabelInputContainer className={amount == 1500 ? "mb-4" : "mb-0"}>
+              <Label htmlFor="clgname">College name</Label>
+              <Input
+                name="clgname"
+                id="clgname"
+                type="text"
+                placeholder="Your college name here"
+                required
+              />
+            </LabelInputContainer>
+            <LabelInputContainer className="mb-4">
+              {amount == 1500 && <Label htmlFor="ieeeid">IEEE ID</Label>}
+              <Input
+                name="ieeeid"
+                id="ieeeid"
+                type={amount == "1500" ? "number" : "hidden"}
+                placeholder="Your IEEE Id here"
+                required
+              />
+            </LabelInputContainer>
+            <LabelInputContainer className="mb-4">
+              <Label htmlFor="wrksp1">Workshop Preference</Label>
+
+              <RadioBtnContainer className={"sm:grid-cols-2"}>
+                <RadioBtn Label={"Workshop 1"} htmlFor={"wrksp1"}>
+                  <input
+                    name="wrksp"
+                    id="wrksp1"
+                    type="radio"
+                    value={"Workshop 1"}
+                    className={RadionInput}
+                    required
+                  />
+                </RadioBtn>
+                <RadioBtn Label={"Workshop 2"} htmlFor={"wrksp2"}>
+                  <input
+                    name="wrksp"
+                    id="wrksp2"
+                    type="radio"
+                    value={"Workshop 2"}
+                    className={RadionInput}
+                    required
+                  />
+                </RadioBtn>
+              </RadioBtnContainer>
+            </LabelInputContainer>
+            <LabelInputContainer className="mb-4">
+              <Label htmlFor="food">Food Preference</Label>
+              <RadioBtnContainer className={"grid-cols-2"}>
+                <RadioBtn Label={"Veg"} htmlFor={"food1"}>
+                  <input
+                    name="food"
+                    id="food1"
+                    type="radio"
+                    value={"Veg"}
+                    className={RadionInput}
+                    required
+                  />
+                </RadioBtn>
+                <RadioBtn Label={"Non-veg"} htmlFor={"food2"}>
+                  <input
+                    name="food"
+                    id="food2"
+                    type="radio"
+                    value={"Non-veg"}
+                    className={RadionInput}
+                    required
+                  />
+                </RadioBtn>
+              </RadioBtnContainer>
+            </LabelInputContainer>
+            <LabelInputContainer className="mb-4">
+              <Label htmlFor="tshirt">T-Shirt Size</Label>
+              <RadioBtnContainer className={"grid-cols-3"}>
+                <RadioBtn Label={"S"} htmlFor={"tsize1"}>
+                  <input
+                    name="tshirt"
+                    id="tsize1"
+                    type="radio"
+                    value={"S"}
+                    className={RadionInput}
+                    required
+                  />
+                </RadioBtn>
+                <RadioBtn Label={"M"} htmlFor={"tsize2"}>
+                  <input
+                    name="tshirt"
+                    id="tsize2"
+                    type="radio"
+                    value={"M"}
+                    className={RadionInput}
+                    required
+                  />
+                </RadioBtn>
+                <RadioBtn Label={"L"} htmlFor={"tsize3"}>
+                  <input
+                    name="tshirt"
+                    id="tsize3"
+                    type="radio"
+                    value={"L"}
+                    className={RadionInput}
+                    required
+                  />
+                </RadioBtn>
+                <RadioBtn Label={"XL"} htmlFor={"tsize4"}>
+                  <input
+                    name="tshirt"
+                    id="tsize4"
+                    type="radio"
+                    value={"XL"}
+                    className={RadionInput}
+                    required
+                  />
+                </RadioBtn>
+                <RadioBtn Label={"XXL"} htmlFor={"tsize5"}>
+                  <input
+                    name="tshirt"
+                    id="tsize5"
+                    type="radio"
+                    value={"XXL"}
+                    className={RadionInput}
+                    required
+                  />
+                </RadioBtn>
+              </RadioBtnContainer>
+            </LabelInputContainer>
+
+            <button
+              disabled={loading}
+              className="flex justify-center items-center gap-5 mt-8 bg-gradient-to-br relative group/btn from-zinc-900 to-zinc-900  w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset] cursor-pointer disabled:cursor-auto disabled:animate-pulse"
+              type="submit"
+            >
+              {loading ? (
+                <>
+                  <p>Please Wait...</p>
+                  <div className="h-4 w-4 border-2 border-y-yellow-400 border-zinc-600 animate-spin rounded-full"></div>
+                </>
+              ) : (
+                "Continue"
+              )}
+              <BottomGradient />
+            </button>
+          </form>
         </div>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="email">Email Address</Label>
-          <Input
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            id="email"
-            placeholder="Your email here"
-            type="email"
-          />
-        </LabelInputContainer>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="mobnum">Mobile No. (Preferebly Whatsapp) </Label>
-          <Input
-            name="mobnum"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            id="mobnum"
-            type="text"
-            placeholder="Your mobile number here"
-          />
-        </LabelInputContainer>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="clgname">College name</Label>
-          <Input
-            name="clgname"
-            id="clgname"
-            type="text"
-            placeholder="Your college name here"
-          />
-        </LabelInputContainer>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="ieeeid">IEEE ID</Label>
-          <Input
-            name="ieeeid"
-            id="ieeeid"
-            type="number"
-            placeholder="Your IEEE Id here"
-          />
-        </LabelInputContainer>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="wrksp1">Workshop Preference</Label>
+      ) : (
+        <main className="w-full h-full flex  justify-center items-center px-6 lg:px-8 py-40">
+          <div className="flex flex-col justify-center items-center ">
+            <div className="h-14 w-14 border-2 border-y-yellow-500 border-zinc-600 animate-spin rounded-full"></div>
 
-          <RadioBtnContainer className={"sm:grid-cols-2"}>
-            <RadioBtn Label={"Workshop 1"} htmlFor={"wrksp1"}>
-              <input
-                name="wrksp"
-                id="wrksp1"
-                type="radio"
-                value={"Workshop 1"}
-                className={RadionInput}
-              />
-            </RadioBtn>
-            <RadioBtn Label={"Workshop 2"} htmlFor={"wrksp2"}>
-              <input
-                name="wrksp"
-                id="wrksp2"
-                type="radio"
-                value={"Workshop 2"}
-                className={RadionInput}
-              />
-            </RadioBtn>
-          </RadioBtnContainer>
-        </LabelInputContainer>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="food">Food Preference</Label>
-          <RadioBtnContainer className={"grid-cols-2"}>
-            <RadioBtn Label={"Veg"} htmlFor={"food1"}>
-              <input
-                name="food"
-                id="food1"
-                type="radio"
-                value={"Veg"}
-                className={RadionInput}
-              />
-            </RadioBtn>
-            <RadioBtn Label={"Non-veg"} htmlFor={"food2"}>
-              <input
-                name="food"
-                id="food2"
-                type="radio"
-                value={"Non-veg"}
-                className={RadionInput}
-              />
-            </RadioBtn>
-          </RadioBtnContainer>
-        </LabelInputContainer>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="tshirt">T-Shirt Size</Label>
-          <RadioBtnContainer className={"grid-cols-3"}>
-            <RadioBtn Label={"S"} htmlFor={"tsize1"}>
-              <input
-                name="tshirt"
-                id="tsize1"
-                type="radio"
-                value={"S"}
-                className={RadionInput}
-              />
-            </RadioBtn>
-            <RadioBtn Label={"M"} htmlFor={"tsize2"}>
-              <input
-                name="tshirt"
-                id="tsize2"
-                type="radio"
-                value={"M"}
-                className={RadionInput}
-              />
-            </RadioBtn>
-            <RadioBtn Label={"L"} htmlFor={"tsize3"}>
-              <input
-                name="tshirt"
-                id="tsize3"
-                type="radio"
-                value={"L"}
-                className={RadionInput}
-              />
-            </RadioBtn>
-            <RadioBtn Label={"XL"} htmlFor={"tsize4"}>
-              <input
-                name="tshirt"
-                id="tsize4"
-                type="radio"
-                value={"XL"}
-                className={RadionInput}
-              />
-            </RadioBtn>
-            <RadioBtn Label={"XXL"} htmlFor={"tsize5"}>
-              <input
-                name="tshirt"
-                id="tsize5"
-                type="radio"
-                value={"XXL"}
-                className={RadionInput}
-              />
-            </RadioBtn>
-          </RadioBtnContainer>
-        </LabelInputContainer>
-
-        <button
-          className="mt-8 bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
-          type="submit"
-        >
-          Continue &rarr;
-          <BottomGradient />
-        </button>
-      </form>
+            <h1 className="text-center mt-4 text-xl tracking-tight text-neutral-500 sm:text-xl">
+              Please wait while your payment is processing......
+            </h1>
+          </div>
+        </main>
+      )}
     </div>
   );
 }

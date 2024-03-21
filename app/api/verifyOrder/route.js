@@ -11,7 +11,7 @@ export async function GET() {
     return NextResponse.json("server running", { status: 200 });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Error sending message" });
+    return NextResponse.json("Error sending message", { status: 500 });
   }
 }
 
@@ -37,6 +37,6 @@ export async function POST(request) {
    
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "err" });
+    return NextResponse.json("Error sending message", { status: 500 });
   }
 }
