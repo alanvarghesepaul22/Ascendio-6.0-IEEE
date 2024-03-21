@@ -1,11 +1,22 @@
 "use client";
-import React from "react";
+
+import { Suspense } from "react";
 import { IconCircleCheckFilled } from "@tabler/icons-react";
 import Link from "next/link";
 import { queryContactEmail } from "../../utils/data";
 import { useSearchParams } from "next/navigation";
 
 const page = () => {
+  return (
+    <Suspense>
+      <PaymentSuccess />
+    </Suspense>
+  );
+};
+
+export default page;
+
+function PaymentSuccess() {
   const searchParams = useSearchParams();
 
   const email = searchParams.get("email");
@@ -41,6 +52,4 @@ const page = () => {
       </div>
     </main>
   );
-};
-
-export default page;
+}

@@ -4,7 +4,7 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { cn } from "../../utils/cn";
 const razorpayKEY = process.env.NEXT_PUBLIC_RAZORPAY_KEY;
-import { redirect, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import RadioBtn, { RadioBtnContainer } from "../Buttons/RadioBtn";
 import { useRouter } from "next/navigation";
