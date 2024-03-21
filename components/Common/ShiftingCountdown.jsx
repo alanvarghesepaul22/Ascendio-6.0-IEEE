@@ -45,14 +45,23 @@ const ShiftingCountdown = () => {
   };
 
   return (
-    <div className="w-full bg-neutral-950 pb-10">
+    <motion.div
+      initial={{ opacity: 0.0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        delay: 0.3,
+        duration: 0.8,
+        ease: "easeInOut",
+      }}
+      className="w-full pb-10"
+    >
       <div className="w-full max-w-5xl mx-auto flex items-center">
         <CountdownItem num={remaining.days} text="days" />
         <CountdownItem num={remaining.hours} text="hours" />
         <CountdownItem num={remaining.minutes} text="minutes" />
         <CountdownItem num={remaining.seconds} text="seconds" />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

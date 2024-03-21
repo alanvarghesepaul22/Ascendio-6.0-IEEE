@@ -5,7 +5,7 @@ import { VideoDataScroll1,VideoDataScroll2 } from "../../utils/data";
 
 const MovingVideo = () => {
   return (
-    <div className="w-full flex flex-col antialiased items-center justify-center relative">
+    <div className="w-full flex flex-col antialiased items-center justify-center relative gap-2">
       <InfiniteMovingCards
         items={VideoDataScroll1}
         direction="right"

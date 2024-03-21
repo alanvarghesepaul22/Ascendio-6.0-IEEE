@@ -1,14 +1,25 @@
+"use client";
 import React from "react";
 import MovingVideo from "../Common/MovingVideo";
+import { AuroraBackground } from "../ui/aurora-background";
+import { motion } from "framer-motion";
 
 const VideoSection = () => {
   return (
-    <div
-      className="h-screen relative w-full overflow-hidden  flex flex-col items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: `url('./videoBgBig.png')` }}
-    >
-      <MovingVideo />
-    </div>
+    <AuroraBackground>
+      <motion.div
+        initial={{ opacity: 0.0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.3,
+          duration: 0.8,
+          ease: "easeInOut",
+        }}
+        className="h-screen w-full flex justify-center items-center my-24 "
+      >
+        <MovingVideo />
+      </motion.div>
+    </AuroraBackground>
   );
 };
 

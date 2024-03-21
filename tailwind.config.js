@@ -16,6 +16,7 @@ module.exports = {
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         "meteor-effect": "meteor 5s linear infinite",
+        aurora: "aurora 60s linear infinite",
       },
       keyframes: {
         spotlight: {
@@ -39,6 +40,14 @@ module.exports = {
           "100%": {
             transform: "rotate(215deg) translateX(-500px)",
             opacity: "0",
+          },
+        },
+        aurora: {
+          from: {
+            backgroundPosition: "50% 50%, 50% 50%",
+          },
+          to: {
+            backgroundPosition: "350% 50%, 350% 50%",
           },
         },
       },
