@@ -4,16 +4,18 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { cn } from "../../utils/cn";
 const razorpayKEY = process.env.NEXT_PUBLIC_RAZORPAY_KEY;
-import { useSearchParams } from "next/navigation";
+import { redirect, useSearchParams } from "next/navigation";
 import axios from "axios";
 import RadioBtn, { RadioBtnContainer } from "../Buttons/RadioBtn";
+import { useRouter } from "next/navigation";
 
 const RadionInput =
   "before:content[''] peer relative h-4 w-4 cursor-pointer appearance-none rounded-full border border-zinc-700  p-0  transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-100 checked:before:bg-gray-100 hover:before:opacity-0";
 
 function generateTicketId(length) {
-  const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let ticketId = '';
+  const charset =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let ticketId = "";
 
   for (let i = 0; i < length; i++) {
     const randomIndex = Math.floor(Math.random() * charset.length);
@@ -23,11 +25,11 @@ function generateTicketId(length) {
   return ticketId;
 }
 
-
 export function Form() {
+  const router = useRouter();
   const searchParams = useSearchParams();
 
-  const amount = parseInt(searchParams.get("amount")) 
+  const amount = parseInt(searchParams.get("amount"));
 
   const [firstname, setFirstname] = useState("");
   const [email, setEmail] = useState("");
@@ -85,7 +87,7 @@ export function Form() {
     const data = response.data.order;
     // setOrderID(data.id)
 
-    var options = {
+    let options = {
       key: razorpayKEY, // Enter the Key ID generated from the Dashboard
       name: "Ascendio",
       currency: data.currency,
@@ -102,12 +104,22 @@ export function Form() {
               razorpay_order_id: response.razorpay_order_id,
             })
             .then((res) => {
-              if (res.status == 200 && res.data.message == 'Payment successful') {
-                console.log("res.status",res.status,"res.data.message",res.data.message);
-                const ticketId = generateTicketId(8); 
-                console.log("ticker",ticketId);
-                axios.post("/api/send", { amount, formData, ticketId, email }).then((res)=>console.log(res))
-                axios.post("/api/submit", { formData }).then((res)=>console.log(res))
+              if (
+                res.status == 200 &&
+                res.data.message == "Payment successful"
+              ) {
+                console.log("Payment successful");
+                const ticketId = generateTicketId(8);
+                console.log("Ticket ID: ", ticketId);
+                axios
+                  .post("/api/send", { amount, formData, ticketId, email })
+                  .then((res) => console.log("Email Sent"));
+                axios
+                  .post("/api/submit", { formData, ticketId })
+                  .then((res) => console.log("Detials added"));
+                router.push(
+                  `/payment-success?email=${email}&ticketId=${ticketId}`
+                );
               }
             });
         } catch (err) {
@@ -123,7 +135,7 @@ export function Form() {
         ondismiss: function () {
           console.log("closed");
         },
-      }
+      },
     };
 
     const paymentObject = new window.Razorpay(options);
