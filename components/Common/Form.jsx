@@ -27,7 +27,7 @@ function generateTicketId(length) {
 export function Form() {
   const searchParams = useSearchParams();
 
-  const amount = searchParams.get("amount");
+  const amount = parseInt(searchParams.get("amount")) 
 
   const [firstname, setFirstname] = useState("");
   const [email, setEmail] = useState("");
@@ -91,7 +91,7 @@ export function Form() {
       currency: data.currency,
       amount: data.amount,
       order_id: data.id,
-      description: "Thank you",
+      description: `Thank you`,
       // image: "https://manuarora.in/logo.png",
       handler: function (response) {
         try {
@@ -123,7 +123,7 @@ export function Form() {
         ondismiss: function () {
           console.log("closed");
         },
-      },
+      }
     };
 
     const paymentObject = new window.Razorpay(options);
