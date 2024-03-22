@@ -153,13 +153,12 @@ export function Form() {
     <div>
       {!redirectLoading ? (
         <div className="max-w-xl w-full mx-auto rounded-none md:rounded-2xl px-8 md:p-8 shadow-input">
-          <h2 className="font-bold text-2xl text-neutral-800 dark:text-neutral-200 text-center">
+          <h2 className="font-bold text-2xl text-neutral-200 text-center">
             Book your Tickets
           </h2>
-          <p className="text-neutral-600 text-sm  mt-2 dark:text-neutral-300 text-center">
+          <p className=" text-sm  mt-2 text-neutral-300 text-center">
             Please fill this form so that we can confirm your tickets.
           </p>
-          {/* <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-3 h-[1px] w-full" /> */}
 
           <form
             className="my-8"
@@ -343,7 +342,7 @@ export function Form() {
 
             <button
               disabled={loading}
-              className="flex justify-center items-center gap-5 mt-8 bg-gradient-to-br relative group/btn from-zinc-900 to-zinc-900  w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset] cursor-pointer disabled:cursor-auto disabled:animate-pulse"
+              className="flex justify-center items-center gap-5 mt-8 bg-gradient-to-br relative group/btn from-zinc-900 to-zinc-900  w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset] cursor-pointer disabled:cursor-auto disabled:animate-pulse"
               type="submit"
             >
               {loading ? (
