@@ -7,11 +7,6 @@ import WS2 from "/public/halo.jpg";
 import WS3 from "/public/halo.jpg";
 import WS4 from "/public/halo.jpg";
 
-import Team1 from "/public/team1.jpeg";
-import Team2 from "/public/team2.jpeg";
-import Team3 from "/public/team3.jpeg";
-import Team4 from "/public/team4.jpeg";
-
 export const navItems = [
   {
     name: "Home",
@@ -47,29 +42,6 @@ export const AboutText =
   "Ascendio is the Techno-Cultural event of IEEE Student's Branch of SCMS School of Engineering & Technology conducted yearly. Its 6th edition, ASCENDIO 6.0 is on the dates: 6th and 7th of April, 2024. The  event consists of Workshops, Motivational sessions, Tech talks, Cultural programs, among some other shows and sessions...";
 
 export const COUNTDOWN_FROM = "4/6/2024";
-
-export const VideoDataScroll1 = [
-  {
-    data: "./Vid1.mp4",
-  },
-  {
-    data: "./Vid2.mp4",
-  },
-  {
-    data: "./Vid3.mp4",
-  },
-];
-export const VideoDataScroll2 = [
-  {
-    data: "./Vid4.mp4",
-  },
-  {
-    data: "./Vid5.mp4",
-  },
-  {
-    data: "./Vid6.mp4",
-  },
-];
 
 export const QueryData = [
   {
@@ -163,11 +135,27 @@ export const WorkshopData = [
 ];
 
 export const TeamData = [
-  { imageUrl: Team1, name: "Alan Varghese Paul", role: "Web Developer" },
-  { imageUrl: Team2, name: "Ashwin Sivasankaran", role: "Content Creator" },
-  { imageUrl: Team3, name: "Gopikrishna MA", role: "Web Developer" },
-  { imageUrl: Team4, name: "Ajal Krishna", role: "Web Designer" },
-  { imageUrl: Team1, name: "Gokul Unni", role: "Chairman" },
+  {
+    imageUrl: "/TeamImages/team1.jpeg",
+    name: "Alan Varghese Paul",
+    role: "Web Developer",
+  },
+  {
+    imageUrl: "/TeamImages/team2.jpeg",
+    name: "Ashwin Sivasankaran",
+    role: "Content Creator",
+  },
+  {
+    imageUrl: "/TeamImages/team3.jpeg",
+    name: "Gopikrishna MA",
+    role: "Web Developer",
+  },
+  {
+    imageUrl: "/TeamImages/team2.jpeg",
+    name: "Ajal Krishna",
+    role: "Web Designer",
+  },
+  { imageUrl: "/TeamImages/team1.jpeg", name: "Gokul Unni", role: "Chairman" },
 ];
 
 export const FooterItems = [
@@ -190,5 +178,265 @@ export const FooterItems = [
   {
     name: "Team",
     link: "/team",
+  },
+];
+
+export const IeeeBenefits = [
+  {
+    isBenefited: true,
+    title: "Sessions and Talks",
+  },
+  {
+    isBenefited: true,
+    title: "Food and accommodation",
+  },
+  {
+    isBenefited: true,
+    title: "Networking Opportunity",
+  },
+  {
+    isBenefited: true,
+    title: "Culturals",
+  },
+  {
+    isBenefited: true,
+    title: "IEEE Membership Benefits",
+  },
+];
+
+export const NonIeeeBenefits = [
+  {
+    isBenefited: true,
+    title: "Sessions and Talks",
+  },
+  {
+    isBenefited: true,
+    title: "Food and accommodation",
+  },
+  {
+    isBenefited: true,
+    title: "Networking Opportunity",
+  },
+  {
+    isBenefited: true,
+    title: "Culturals",
+  },
+  {
+    isBenefited: false,
+    title: "IEEE Membership Benefits",
+  },
+];
+
+export const DriveImages1 = [
+  {
+    data: "/Scrollimages/img1.jpg",
+  },
+  {
+    data: "/Scrollimages/img2.jpg",
+  },
+  {
+    data: "/Scrollimages/img3.jpg",
+  },
+  {
+    data: "/Scrollimages/img4.jpg",
+  },
+  {
+    data: "/Scrollimages/img5.jpg",
+  },
+  {
+    data: "/Scrollimages/img6.jpg",
+  },
+  {
+    data: "/Scrollimages/img7.jpg",
+  },
+  {
+    data: "/Scrollimages/img8.jpg",
+  },
+  {
+    data: "/Scrollimages/img9.jpg",
+  },
+  {
+    data: "/Scrollimages/img10.jpg",
+  },
+  {
+    data: "/Scrollimages/img11.jpg",
+  },
+  {
+    data: "/Scrollimages/img12.jpg",
+  },
+  {
+    data: "/Scrollimages/img13.jpg",
+  },
+  {
+    data: "/Scrollimages/img14.jpg",
+  },
+  {
+    data: "/Scrollimages/img15.jpg",
+  },
+  {
+    data: "/Scrollimages/img16.jpg",
+  },
+  {
+    data: "/Scrollimages/img17.jpg",
+  },
+  {
+    data: "/Scrollimages/img18.jpg",
+  },
+  {
+    data: "/Scrollimages/img19.jpg",
+  },
+  {
+    data: "/Scrollimages/img20.jpg",
+  },
+  {
+    data: "/Scrollimages/img21.jpg",
+  },
+  {
+    data: "/Scrollimages/img22.jpg",
+  },
+  {
+    data: "/Scrollimages/img23.jpg",
+  },
+];
+export const DriveImages2 = [
+  {
+    data: "/Scrollimages/img24.jpg",
+  },
+  {
+    data: "/Scrollimages/img25.jpg",
+  },
+  {
+    data: "/Scrollimages/img26.jpg",
+  },
+  {
+    data: "/Scrollimages/img27.jpg",
+  },
+  {
+    data: "/Scrollimages/img28.jpg",
+  },
+  {
+    data: "/Scrollimages/img29.jpg",
+  },
+  {
+    data: "/Scrollimages/img30.jpg",
+  },
+  {
+    data: "/Scrollimages/img31.jpg",
+  },
+  {
+    data: "/Scrollimages/img32.jpg",
+  },
+  {
+    data: "/Scrollimages/img33.jpg",
+  },
+  {
+    data: "/Scrollimages/img34.jpg",
+  },
+  {
+    data: "/Scrollimages/img35.jpg",
+  },
+  {
+    data: "/Scrollimages/img36.jpg",
+  },
+  {
+    data: "/Scrollimages/img37.jpg",
+  },
+  {
+    data: "/Scrollimages/img38.jpg",
+  },
+  {
+    data: "/Scrollimages/img39.jpg",
+  },
+  {
+    data: "/Scrollimages/img40.jpg",
+  },
+  {
+    data: "/Scrollimages/img41.jpg",
+  },
+  {
+    data: "/Scrollimages/img42.jpg",
+  },
+  {
+    data: "/Scrollimages/img43.jpg",
+  },
+  {
+    data: "/Scrollimages/img44.jpg",
+  },
+  {
+    data: "/Scrollimages/img45.jpg",
+  },
+  {
+    data: "/Scrollimages/img46.jpg",
+  },
+];
+export const DriveImages3 = [
+  {
+    data: "/Scrollimages/img47.jpg",
+  },
+  {
+    data: "/Scrollimages/img48.jpg",
+  },
+  {
+    data: "/Scrollimages/img49.jpg",
+  },
+  {
+    data: "/Scrollimages/img50.jpg",
+  },
+  {
+    data: "/Scrollimages/img51.jpg",
+  },
+  {
+    data: "/Scrollimages/img52.jpg",
+  },
+  {
+    data: "/Scrollimages/img53.jpg",
+  },
+  {
+    data: "/Scrollimages/img54.jpg",
+  },
+  {
+    data: "/Scrollimages/img55.jpg",
+  },
+  {
+    data: "/Scrollimages/img56.jpg",
+  },
+  {
+    data: "/Scrollimages/img57.jpg",
+  },
+  {
+    data: "/Scrollimages/img58.jpg",
+  },
+  {
+    data: "/Scrollimages/img59.jpg",
+  },
+  {
+    data: "/Scrollimages/img60.jpg",
+  },
+  {
+    data: "/Scrollimages/img61.jpg",
+  },
+  {
+    data: "/Scrollimages/img62.jpg",
+  },
+  {
+    data: "/Scrollimages/img63.jpg",
+  },
+  {
+    data: "/Scrollimages/img64.jpg",
+  },
+  {
+    data: "/Scrollimages/img65.jpg",
+  },
+  {
+    data: "/Scrollimages/img66.jpg",
+  },
+  {
+    data: "/Scrollimages/img67.jpg",
+  },
+  {
+    data: "/Scrollimages/img68.jpg",
+  },
+  {
+    data: "/Scrollimages/img69.jpg",
   },
 ];

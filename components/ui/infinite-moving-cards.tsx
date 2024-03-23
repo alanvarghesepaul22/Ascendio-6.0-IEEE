@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { cn } from "../../utils/cn";
+import Image from "next/image";
 
 export const InfiniteMovingCards = ({
   items,
@@ -65,7 +66,7 @@ export const InfiniteMovingCards = ({
       } else if (speed === "normal") {
         containerRef.current.style.setProperty("--animation-duration", "40s");
       } else {
-        containerRef.current.style.setProperty("--animation-duration", "80s");
+        containerRef.current.style.setProperty("--animation-duration", "300s");
       }
     }
   };
@@ -91,7 +92,7 @@ export const InfiniteMovingCards = ({
         </ul>
       </div>
     );
-  } else if (mode === "video") {
+  } else if (mode === "image") {
     return (
       <div
         ref={containerRef}
@@ -103,24 +104,24 @@ export const InfiniteMovingCards = ({
         <ul
           ref={scrollerRef}
           className={cn(
-            " flex min-w-full shrink-0 gap-4 py-1 w-max flex-nowrap",
+            " flex min-w-full shrink-0 gap-2 py-1 w-max flex-nowrap",
             start && "animate-scroll ",
             pauseOnHover && "hover:[animation-play-state:paused]"
           )}
         >
           {items.map((item, index) => (
             <div
-              className="w-full h-[280px] flex justify-center items-center"
+              className="w-auto h-[180px] flex justify-center items-center opacity-50"
               key={index}
             >
-              <video
-                autoPlay
-                muted
-                preload="auto"
-                loop
+              <Image
                 src={item.data}
-                className="w-full h-full object-contain"
-              ></video>
+                alt="Image"
+                height={500}
+                width={500}
+                className="h-auto w-auto"
+                priority={false}
+              />
             </div>
           ))}
         </ul>
