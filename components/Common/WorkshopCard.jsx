@@ -1,8 +1,10 @@
+import { IconExternalLink } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
-const WorkshopCard = ({ imageUrl, name, designation, description }) => {
+const WorkshopCard = ({id, imageUrl, name, designation, description }) => {
   return (
     <motion.div
       initial={{ scale: 0.8 }}
@@ -34,12 +36,15 @@ const WorkshopCard = ({ imageUrl, name, designation, description }) => {
           transition={{ duration: 0.3 }}
           className="absolute bottom-0 left-0 w-full bg-neutral-950/50 p-4"
         >
-          <div className="w-fit text-neutral-200">
-            <p className="text-xl font-medium">About the workshop</p>
-            <div className="w-full h-px rounded-lg bg-neutral-300"></div>
+          <div className="w-full h-full flex justify-center items-center">
+            <Link
+              href={`/workshop/${id}`}
+              className="flex gap-4 text-neutral-200 hover:underline hover:text-neutral-400"
+            >
+              <p>More about {name}</p>
+              <IconExternalLink stroke={2} />
+            </Link>
           </div>
-
-          <p className="mt-3 font-light text-base">{description}</p>
         </motion.div>
       </div>
       <div className="w-full h-full flex flex-col justify-start p-4">

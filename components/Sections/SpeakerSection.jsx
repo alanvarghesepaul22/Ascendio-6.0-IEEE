@@ -15,9 +15,10 @@ const SpeakerSection = () => {
       <div className="w-full pt-20 mt-10 sm:mt-20 md:mt-10 flex flex-col items-center">
         <MagicTitle>Meet our Speakers</MagicTitle>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10 pb-10">
-          {SpeakerData.map((item, index) => (
+          {SpeakerData.map((item) => (
             <JumpingCard
-              key={index}
+              key={item.id}
+              id={item.id}
               imageUrl={item.imageUrl}
               name={item.name}
               designation={item.designation}

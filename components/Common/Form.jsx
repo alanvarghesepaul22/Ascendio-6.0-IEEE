@@ -8,6 +8,8 @@ import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import RadioBtn, { RadioBtnContainer } from "../Buttons/RadioBtn";
 import { useRouter } from "next/navigation";
+import DropdownContainer from "../Buttons/Dropdown";
+import { Preference1, Preference2 } from "../../utils/data";
 
 const RadionInput =
   "before:content[''] peer relative h-4 w-4 cursor-pointer appearance-none rounded-full border border-zinc-700  p-0  transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-100 checked:before:bg-gray-100 hover:before:opacity-0";
@@ -233,7 +235,7 @@ export function Form() {
                 required
               />
             </LabelInputContainer>
-            <LabelInputContainer className="mb-4">
+            {/* <LabelInputContainer className="mb-4">
               <Label htmlFor="wrksp1">Workshop Preference</Label>
 
               <RadioBtnContainer className={"sm:grid-cols-2"}>
@@ -257,6 +259,37 @@ export function Form() {
                     required
                   />
                 </RadioBtn>
+              </RadioBtnContainer>
+            </LabelInputContainer> */}
+
+            <LabelInputContainer className="mb-4">
+              <Label htmlFor="wrksp1">Workshop Preference</Label>
+
+              <RadioBtnContainer className={"sm:grid-cols-2"}>
+                <DropdownContainer>
+                  <select class="block appearance-none w-full bg-zinc-800 text-white text-sm px-4 py-2 pr-8 rounded-md shadow-sm focus:outline-none transition duration-300 ease-in-out">
+                    <option value="" selected disabled hidden>
+                      Preference 1
+                    </option>
+                    {Preference1.map((item) => (
+                      <option key={item.id} value={item.title}>
+                        {item.title}
+                      </option>
+                    ))}
+                  </select>
+                </DropdownContainer>
+                <DropdownContainer>
+                  <select class="block appearance-none w-full bg-zinc-800 text-white text-sm px-4 py-2 pr-8 rounded-md shadow-sm focus:outline-none transition duration-300 ease-in-out">
+                    <option value="" selected disabled hidden>
+                      Preference 2
+                    </option>
+                    {Preference2.map((item) => (
+                      <option key={item.id} value={item.title}>
+                        {item.title}
+                      </option>
+                    ))}
+                  </select>
+                </DropdownContainer>
               </RadioBtnContainer>
             </LabelInputContainer>
             <LabelInputContainer className="mb-4">
