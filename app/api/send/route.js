@@ -8,7 +8,7 @@ export async function POST(request) {
   try {
     console.log("mail",email);
     const data = await resend.emails.send({
-      from: 'hello@ascendio.sset.co.in',
+      from: 'Ascendio@sset.co.in',
       to: [formData.email],
       subject: 'Confirmation: IEEE Ascendio 6.0 Ticket Purchase',
       react: EmailTemplate({ formData, amount, ticketId }),
