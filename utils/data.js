@@ -199,6 +199,11 @@ export const FooterItems = [
     name: "Team",
     link: "/team",
   },
+  {
+    id: 6,
+    name: "Support",
+    link: "/support",
+  },
 ];
 
 export const IeeeBenefits = [
