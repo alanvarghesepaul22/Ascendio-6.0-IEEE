@@ -21,7 +21,7 @@ const JumpingCard = ({ id, imageUrl, name, designation, linkedinUrl }) => {
       transition={{ type: "spring", stiffness: 300 }}
       className="bg-neutral-900/50 w-80 h-auto flex flex-col justify-center items-center rounded-lg"
     >
-      <div className="relative">
+      <div className="h-full w-full relative">
         <Image
           src={imageUrl}
           alt=""
