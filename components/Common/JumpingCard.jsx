@@ -34,12 +34,12 @@ const JumpingCard = ({ id, imageUrl, name, designation, linkedinUrl }) => {
           animate={{ opacity: 0, height: "100%" }}
           whileHover={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className="absolute bottom-0 left-0 w-full bg-neutral-950/50 p-4"
+          className="absolute bottom-0 left-0 w-full bg-neutral-950/50"
         >
-          <div className="w-full h-full flex justify-center items-center">
+          <div className="w-full h-full flex">
             <Link
               href={`/speakers/${id}`}
-              className="flex gap-4 text-neutral-200 hover:underline hover:text-neutral-400"
+              className="w-full h-full flex justify-center items-center gap-4 text-neutral-200 hover:underline hover:text-neutral-400"
             >
               <p>More about {name}</p>
               <IconExternalLink stroke={2} />

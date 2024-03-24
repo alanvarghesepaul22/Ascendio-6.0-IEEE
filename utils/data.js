@@ -1,8 +1,3 @@
-import WS1 from "/public/halo.jpg";
-import WS2 from "/public/halo.jpg";
-import WS3 from "/public/halo.jpg";
-import WS4 from "/public/halo.jpg";
-
 export const navItems = [
   {
     id: 1,
@@ -117,7 +112,7 @@ export const SpeakerData = [
 export const WorkshopData = [
   {
     id: 1,
-    imageUrl: WS1,
+    imageUrl: "/WorkshopImages/SparkAR.jpg",
     name: "Meta Spark AR",
     designation: "Akarsh Ashok",
     description:
@@ -125,7 +120,7 @@ export const WorkshopData = [
   },
   {
     id: 2,
-    imageUrl: WS2,
+    imageUrl: "/WorkshopImages/BigData.jpg",
     name: "Big Data",
     designation: "Megna Sudeep",
     description:
@@ -133,16 +128,16 @@ export const WorkshopData = [
   },
   {
     id: 3,
-    imageUrl: WS3,
-    name: "Drone",
+    imageUrl: "/WorkshopImages/Drone.jpg",
+    name: "Hover High - Drone Expo",
     designation: "Indrajith VS",
     description:
       "Experience the world of Drone Technology with our exciting Drone Workshop, led by FPV racer and licensed pilot, Indrajith V S. This immersive session goes beyond flying drones; it delves into aerial photography, videography, and the wide-ranging applications in various industries. Whether you're a hobbyist or a professional, this workshop caters to all skill levels. Join us for a memorable journey into the skies, where you'll gain practical knowledge, hands-on experience, and a new perspective on flight's endless possibilities.",
   },
   {
     id: 4,
-    imageUrl: WS4,
-    name: "Section Level Coding Competition",
+    imageUrl: "/WorkshopImages/SectionLevelCoding.jpg",
+    name: "CAECUS - Coding Competition",
     designation: "IEEE SSET Team",
     description:
       "Caecus is a jumbled coding competition that allows you to think, create and solve problems in endless ways. The event emphasizes  on the power of teamwork where everyone's  skill contributes to the success of the project. Participating teams will have to go through 2 rounds and the winning team will be awarded with cash prizes.",
@@ -151,26 +146,35 @@ export const WorkshopData = [
 
 export const TeamData = [
   {
-    imageUrl: "/TeamImages/team1.jpeg",
+    id: 1,
+    imageUrl: "/TeamImages/alan.jpeg",
     name: "Alan Varghese Paul",
     role: "Web Developer",
   },
   {
-    imageUrl: "/TeamImages/team2.jpeg",
+    id: 2,
+    imageUrl: "/TeamImages/ashwin.jpg",
     name: "Ashwin Sivasankaran",
     role: "Content Creator",
   },
   {
-    imageUrl: "/TeamImages/team3.jpeg",
+    id: 3,
+    imageUrl: "/TeamImages/gopima.jpg",
     name: "Gopikrishna MA",
     role: "Web Developer",
   },
   {
-    imageUrl: "/TeamImages/team2.jpeg",
+    id: 4,
+    imageUrl: "/TeamImages/ajal.jpg",
     name: "Ajal Krishna",
-    role: "Web Designer",
+    role: "Content Designer",
   },
-  { imageUrl: "/TeamImages/team1.jpeg", name: "Gokul Unni", role: "Chairman" },
+  {
+    id: 5,
+    imageUrl: "/TeamImages/gokul.jpg",
+    name: "Gokul Unni",
+    role: "Content Creator",
+  },
 ];
 
 export const FooterItems = [
@@ -196,8 +200,8 @@ export const FooterItems = [
   },
   {
     id: 5,
-    name: "Team",
-    link: "/team",
+    name: "Contact Us",
+    link: "/support/contact",
   },
   {
     id: 6,
@@ -545,47 +549,46 @@ export const DriveImages3 = [
   },
 ];
 
-export const Preference1 = [
+export const Preference = [
   {
     id: 1,
-    title: "Preference 1",
+    title: "Big Data",
   },
   {
     id: 2,
-    title: "Preference 2",
+    title: "Spark AR Studio",
   },
   {
     id: 3,
-    title: "Preference 3",
-  },
-  {
-    id: 4,
-    title: "Preference 4",
-  },
-  {
-    id: 5,
-    title: "Preference 5",
+    title: "Coding Competition",
   },
 ];
-export const Preference2 = [
+
+
+export const MoreInfoData = [
   {
     id: 1,
-    title: "Preference 1",
+    title: "Privacy Policy",
+    url: "support/privacy-policy",
   },
   {
     id: 2,
-    title: "Preference 2",
+    title: "Terms and Conditions",
+    url: "support/terms-conditions",
   },
   {
     id: 3,
-    title: "Preference 3",
+    title: "Cancellation and Refund Policy",
+    url: "support/cancellation",
   },
   {
     id: 4,
-    title: "Preference 4",
+    title: "Ticket Booking Policy",
+    url: "support/delivery",
   },
   {
     id: 5,
-    title: "Preference 5",
+    title: "Contact Us",
+    url: "support/contact",
   },
 ];

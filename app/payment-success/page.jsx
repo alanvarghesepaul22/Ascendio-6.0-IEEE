@@ -5,6 +5,10 @@ import { IconCircleCheckFilled } from "@tabler/icons-react";
 import Link from "next/link";
 import { queryContactEmail } from "../../utils/data";
 import { useSearchParams } from "next/navigation";
+export const metadata = {
+  title: "Payment Success - Ascendio 6.0",
+  description: "IEEE SSET Ascendio 6.0",
+};
 
 const page = () => {
   return (

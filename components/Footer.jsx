@@ -48,9 +48,9 @@ const Footer = () => {
         </div>
         <div className="flex flex-col md:flex-row gap-3 md:gap-10 md:mr-14 text-neutral-600 text-lg mt-9 md:mt-0">
           <div className="grid grid-cols-3 text-nowrap gap-x-10 gap-y-3">
-            {FooterItems.map((item, index) => (
+            {FooterItems.map((item) => (
               <Link
-                key={index}
+                key={item.id}
                 href={item.link}
                 className="hover:text-neutral-200 transition-all text-sm"
               >
@@ -73,13 +73,16 @@ const Footer = () => {
       >
         <p className="text-neutral-500">© All rights reserved.</p>
         <div className="h-9 md:h-20">
-          <h1 className="text-5xl md:text-9xl font-extrabold text-neutral-600 cursor-copy">
+          <Link
+            href={"/team"}
+            className="text-5xl md:text-9xl font-extrabold text-neutral-600 cursor-copy"
+          >
             {"ASCENDIO".split("").map((child, idx) => (
               <span className="hoverText" key={idx}>
                 {child}
               </span>
             ))}
-          </h1>
+          </Link>
         </div>
       </motion.div>
     </div>

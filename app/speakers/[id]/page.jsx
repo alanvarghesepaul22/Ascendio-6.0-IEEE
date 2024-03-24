@@ -2,7 +2,10 @@ import React from "react";
 import MagicTitle from "../../../components/Common/MagicTitle";
 import AboutSpeaker from "../../../components/Common/AboutSpeaker";
 import DividerLine from "../../../components/Common/DividerLine";
-
+export const metadata = {
+  title: "About Speaker  - Ascendio 6.0",
+  description: "IEEE SSET Ascendio 6.0",
+};
 
 const page = ({ params }) => {
   return (

@@ -1,6 +1,10 @@
 import React from "react";
 import WorkshopEsction from "../../components/Sections/WorkshopSection";
 import MagicTitle from "../../components/Common/MagicTitle";
+export const metadata = {
+  title: "Workshops - Ascendio 6.0",
+  description: "IEEE SSET Ascendio 6.0",
+};
 
 export default function EvervaultCardDemo() {
   return (

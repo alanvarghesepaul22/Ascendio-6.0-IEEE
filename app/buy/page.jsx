@@ -1,6 +1,10 @@
 import React from "react";
 import BuySection from "../../components/Sections/BuySection";
 import MagicTitle from "../../components/Common/MagicTitle";
+export const metadata = {
+  title: "Buy Tickets - Ascendio 6.0",
+  description: "IEEE SSET Ascendio 6.0",
+};
 
 const page = () => {
   return (

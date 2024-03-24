@@ -9,7 +9,7 @@ import axios from "axios";
 import RadioBtn, { RadioBtnContainer } from "../Buttons/RadioBtn";
 import { useRouter } from "next/navigation";
 import DropdownContainer from "../Buttons/Dropdown";
-import { Preference1, Preference2 } from "../../utils/data";
+import { Preference } from "../../utils/data";
 
 const RadionInput =
   "before:content[''] peer relative h-4 w-4 cursor-pointer appearance-none rounded-full border border-zinc-700  p-0  transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-100 checked:before:bg-gray-100 hover:before:opacity-0";
@@ -271,7 +271,7 @@ export function Form() {
                     <option value="" selected disabled hidden>
                       Preference 1
                     </option>
-                    {Preference1.map((item) => (
+                    {Preference.map((item) => (
                       <option key={item.id} value={item.title}>
                         {item.title}
                       </option>
@@ -283,7 +283,7 @@ export function Form() {
                     <option value="" selected disabled hidden>
                       Preference 2
                     </option>
-                    {Preference2.map((item) => (
+                    {Preference.map((item) => (
                       <option key={item.id} value={item.title}>
                         {item.title}
                       </option>
