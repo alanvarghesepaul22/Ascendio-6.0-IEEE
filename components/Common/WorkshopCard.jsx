@@ -41,7 +41,7 @@ const WorkshopCard = ({id, imageUrl, name, designation, description }) => {
               href={`/workshop/${id}`}
               className="w-full h-full flex justify-center items-center gap-4 text-neutral-200 hover:underline hover:text-neutral-400"
             >
-              <p>More about {name}</p>
+              <p>Explore More</p>
               <IconExternalLink stroke={2} />
             </Link>
           </div>
