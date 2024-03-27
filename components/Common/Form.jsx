@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import DropdownContainer from "../Buttons/Dropdown";
 import { Preference } from "../../utils/data";
 import NotFound from "../../app/not-found"
+import BuyTicketRedirect from "./BuyTicketRedirect";
 
 const RadionInput =
   "before:content[''] peer relative h-4 w-4 cursor-pointer appearance-none rounded-full border border-zinc-700  p-0  transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-100 checked:before:bg-gray-100 hover:before:opacity-0";
@@ -31,6 +32,11 @@ function generateTicketId(length) {
 export function Form() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  if(true){
+    return(
+      <BuyTicketRedirect/>
+    )
+  }
 
   const amount = parseInt(searchParams.get("amount"));
 
