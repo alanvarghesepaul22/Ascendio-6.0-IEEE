@@ -138,7 +138,7 @@ export const SpeakerData = [
 export const WorkshopData = [
   {
     id: 1,
-    imageUrl: "/WorkshopImages/SparkAR.jpg",
+    imageUrl: "/WorkshopImages/SparkAR.png",
     name: "Meta Spark AR",
     designation: "Akarsh Ashok",
     description:
@@ -146,7 +146,7 @@ export const WorkshopData = [
   },
   {
     id: 2,
-    imageUrl: "/WorkshopImages/BigData.jpg",
+    imageUrl: "/WorkshopImages/BigData.png",
     name: "Big Data",
     designation: "Megna Sudeep",
     description:
@@ -154,7 +154,7 @@ export const WorkshopData = [
   },
   {
     id: 3,
-    imageUrl: "/WorkshopImages/Drone.jpg",
+    imageUrl: "/WorkshopImages/Drone.png",
     name: "Drone Expo",
     designation: "Indrajith VS",
     description:
@@ -162,7 +162,7 @@ export const WorkshopData = [
   },
   {
     id: 4,
-    imageUrl: "/WorkshopImages/SectionLevelCoding.jpg",
+    imageUrl: "/WorkshopImages/SectionLevelCoding.png",
     name: "CRYPTIQ - Coding Competition",
     designation: "IEEE SSET Team",
     description:
@@ -179,27 +179,27 @@ export const TeamData = [
   },
   {
     id: 2,
-    imageUrl: "/TeamImages/ashwin.jpg",
-    name: "Ashwin Sivasankaran",
-    role: "Content Creator",
-  },
-  {
-    id: 3,
     imageUrl: "/TeamImages/gopima.jpg",
     name: "Gopikrishna MA",
     role: "Web Developer",
   },
   {
-    id: 4,
-    imageUrl: "/TeamImages/ajal.jpg",
-    name: "Ajal Krishna",
-    role: "Content Designer",
-  },
-  {
-    id: 5,
+    id: 3,
     imageUrl: "/TeamImages/gokul.jpg",
     name: "Gokul Unni",
     role: "Content Creator",
+  },
+  {
+    id: 4,
+    imageUrl: "/TeamImages/ashwin.jpg",
+    name: "Ashwin Sivasankaran",
+    role: "Content Creator",
+  },
+  {
+    id: 5,
+    imageUrl: "/TeamImages/ajal.jpg",
+    name: "Ajal Krishna",
+    role: "Content Designer",
   },
 ];
 
@@ -617,3 +617,6 @@ export const MoreInfoData = [
     url: "support/contact",
   },
 ];
+
+export const whatsappGroupLink =
+  "https://chat.whatsapp.com/Hn2lPo0l80HDvP1v17kV9e";
