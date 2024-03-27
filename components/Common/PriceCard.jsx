@@ -66,12 +66,12 @@ const PriceCard = ({ amount, title, description, benefits }) => {
           </div>
 
           <div className="flex justify-between items-center w-full">
-            <Link
-              href={`/buy/submit-form?amount=${amount}`}
+            <div
+              // href={`/buy/submit-form?amount=${amount}`}
               className="border px-4 py-1 rounded-md font-semibold border-neutral-500 text-neutral-200 hover:bg-neutral-950 hover:scale-95 transition-all"
             >
               BUY TICKET
-            </Link>
+            </div>
             <div className=" font-medium text-xl">{"₹" + amount}</div>
           </div>
 
