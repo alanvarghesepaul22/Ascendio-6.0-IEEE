@@ -2,7 +2,11 @@
 import React from "react";
 import { IconBrandWhatsapp, IconCircleCheckFilled } from "@tabler/icons-react";
 import Link from "next/link";
-import { queryContactEmail, whatsappGroupLink } from "../../utils/data";
+import {
+  queryContactEmail,
+  whatsappContactLink,
+  whatsappGroupLink,
+} from "../../utils/data";
 import { useSearchParams } from "next/navigation";
 import NotFound from "../../app/not-found";
 
@@ -39,6 +43,27 @@ const PaymentSuccess = () => {
           Join whatsapp group
           <IconBrandWhatsapp stroke={2} />
         </Link>
+        <p className="text-center mt-6 text-base leading-7 text-neutral-500">
+          <span className="font-bold text-neutral-100">
+            Can't join whatsapp group?
+          </span>
+          <br />
+          Send us a mail at
+          <Link
+            href={`mailto:${queryContactEmail}`}
+            className="text-neutral-400 hover:underline hover:text-neutral-200 px-2 transition-all"
+          >
+            {queryContactEmail}
+          </Link>
+          or
+          <Link
+            href={whatsappContactLink}
+            className="text-green-600 hover:underline hover:text-green-800 px-2 transition-all"
+          >
+            Send a message.
+          </Link>
+        </p>
+
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Link
             href="/buy"

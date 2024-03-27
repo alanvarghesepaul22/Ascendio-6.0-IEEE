@@ -142,7 +142,7 @@ export const WorkshopData = [
     name: "Meta Spark AR",
     designation: "Akarsh Ashok",
     description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis odit,sapiente eligendi culpa incidunt error rerum iste aut delenit dolorem, assumenda quo excepturi sequi nobis minus id molestias numquam! Ullam!",
+      "Embark on an exhilarating journey into the captivating world of Augmented Reality (AR) with our Meta Spark AR Workshop led by Akarsh Ashok. Prepare to be amazed as you delve into the limitless possibilities of AR technology, learning to create your own Instagram filters and bring your imagination to life. Join us on April 6th, 2024, at SCMS School of Engineering and Technology for an unforgettable experience from 2:00pm to 5:00pm. Whether you're an aspiring creator or a seasoned enthusiast, this workshop promises to ignite your creativity and leave you inspired. Don't miss out on this unique opportunity to unlock the magic of AR and take your digital creations to new heights. Register now and be part of the future!",
   },
   {
     id: 2,
@@ -166,7 +166,7 @@ export const WorkshopData = [
     name: "CRYPTIQ - Coding Competition",
     designation: "IEEE SSET Team",
     description:
-      "Caecus is a jumbled coding competition that allows you to think, create and solve problems in endless ways. The event emphasizes  on the power of teamwork where everyone's  skill contributes to the success of the project. Participating teams will have to go through 2 rounds and the winning team will be awarded with cash prizes.",
+      "Unleash your coding prowess and embrace the journey to success with CRYPTIQ, an electrifying event hosted by IEEE Kochi subsection as part of the prestigious 'ASCENDIO' by IEEE SSET SB. Join us on April 6th, 2024, at SCMS School of Engineering and Technology from 2-5 pm for an exhilarating competition that pushes the boundaries of innovation. With two rounds of intense challenges, participants stand a chance to win cash prizes of up to ₹5,000. Dive into the world of coding, teamwork, and exploration as we celebrate the spirit of collaboration and ingenuity. Register now at bit.ly/CRYPTIQ and mark your calendars for a transformative experience. Don't miss this opportunity to elevate your coding skills and unlock new possibilities. For payment and inquiries, contact Ramshankar at 6238 076 079. Visit ascendio.sset.co.in for more details. Let's embark on this inspiring journey together!",
   },
 ];
 
@@ -620,3 +620,17 @@ export const MoreInfoData = [
 
 export const whatsappGroupLink =
   "https://chat.whatsapp.com/CIiD8d4figH3CGbgVy8mjU";
+
+export const whatsappContactLink = "https://wa.me/+917994294176";
+
+export const BankDetails = [
+  {
+    id: 1,
+    name: "Rihan Sajeer",
+    accno: "77770125241139",
+    ifsc: "FDRL0007777",
+    branch: "Neo Banking - Jupiter",
+    gpayno: "6282560679",
+    upiId: "6282560679@jupiteraxis",
+  },
+];

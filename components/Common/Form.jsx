@@ -3,15 +3,15 @@ import React, { useState } from "react";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { cn } from "../../utils/cn";
-const razorpayKEY = process.env.NEXT_PUBLIC_RAZORPAY_KEY;
+// const razorpayKEY = process.env.NEXT_PUBLIC_RAZORPAY_KEY;
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import RadioBtn, { RadioBtnContainer } from "../Buttons/RadioBtn";
 import { useRouter } from "next/navigation";
 import DropdownContainer from "../Buttons/Dropdown";
-import { Preference } from "../../utils/data";
+import { BankDetails, Preference } from "../../utils/data";
 import NotFound from "../../app/not-found";
-import BuyTicketRedirect from "./BuyTicketRedirect";
+// import BuyTicketRedirect from "./BuyTicketRedirect";
 import { QRCode, message } from "antd";
 import { IconCopy } from "@tabler/icons-react";
 
@@ -34,12 +34,15 @@ function generateTicketId(length) {
 export function Form() {
   const router = useRouter();
   const searchParams = useSearchParams();
+
+  // if you want to disable the payment uncomment this
   // if(true){
   //   return(
   //     <BuyTicketRedirect/>
   //   )
   // }
 
+  const PaymentDetails = BankDetails[0];
   const amount = parseInt(searchParams.get("amount"));
 
   if (!amount) {
@@ -74,7 +77,7 @@ export function Form() {
 
   const handleCopy = () => {
     navigator.clipboard
-      .writeText("6282560679@jupiteraxis")
+      .writeText(PaymentDetails.upiId)
       .then(() => {
         message.success("Copied to clipboard!");
       })
@@ -103,7 +106,7 @@ export function Form() {
         .post("/api/send", { amount, formData, ticketId, email })
         .then((res) => console.log("Email Sent"));
       await axios
-        .post("/api/submit", { formData, ticketId })
+        .post("/api/submit", { formData, ticketId, amount })
         .then((res) => console.log("Detials added"));
       router.push(`/payment-success?email=${email}&ticketId=${ticketId}`);
     } catch (error) {
@@ -370,7 +373,7 @@ export function Form() {
               <div className="w-fit h-40 bg-white rounded-md">
                 <QRCode
                   value={
-                    `upi://pay?pa=6282560679@jupiteraxis&pn=Rihan Sajeer&am=${amount}&cu=INR` ||
+                    `upi://pay?pa=${PaymentDetails.upiId}&pn=${PaymentDetails.name}&am=${amount}&cu=INR` ||
                     "-"
                   }
                 />
@@ -379,19 +382,19 @@ export function Form() {
               <div>
                 <p className="text-lg">Account Details</p>
                 <div className="text-neutral-300">
-                  <b>Name:</b> Rihan Sajeer <br /> Account number:
-                  77770125241139 <br />
-                  <b>IFSC Code:</b>
-                  FDRL0007777
-                  <br /> <b>Branch:</b> Neo Banking - Jupiter
+                  <b>Name:</b> {PaymentDetails.name} <br /> Account number:{" "}
+                  {PaymentDetails.accno} <br />
+                  <b>IFSC Code: </b>
+                  {PaymentDetails.ifsc}
+                  <br /> <b>Branch:</b> {PaymentDetails.branch}
                   <br />
-                  <b>G-Pay Number :</b>
-                  6282560679
+                  <b>G-Pay Number : </b>
+                  {PaymentDetails.gpayno}
                   <div className="flex gap-3 justify-center items-center">
-                    <p className="font-bold"> 
+                    <p className="font-bold">
                       UPI ID:{" "}
                       <span className="text-blue-600">
-                        6282560679@jupiteraxis
+                        {PaymentDetails.upiId}
                       </span>{" "}
                     </p>
                     <button type="button" onClick={handleCopy}>
@@ -409,20 +412,20 @@ export function Form() {
                 value={transId}
                 onChange={(e) => setTransId(e.target.value)}
                 id="transId"
-                placeholder="Please enter transaction id after payment completion"
+                placeholder="Please provide transaction id after payment completion"
                 type="text"
                 required
               />
             </LabelInputContainer>
 
             <LabelInputContainer className="mb-4">
-              <Label htmlFor="mobile">Mobile:</Label>
+              <Label htmlFor="mobile">Mobile No. </Label>
               <Input
                 name="mobile"
                 value={mobile}
                 onChange={(e) => setMobile(e.target.value)}
                 id="mobile"
-                placeholder="Please enter the mobile number used for payment"
+                placeholder="Please provide the mobile number used for payment"
                 type="number"
                 required
               />

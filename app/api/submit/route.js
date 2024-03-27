@@ -2,7 +2,7 @@ import { google } from "googleapis";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {
-  const { formData, ticketId } = await request.json();
+  const { formData, ticketId, amount } = await request.json();
   let currentDate = new Date();
 
   let year = currentDate.getFullYear();
@@ -39,7 +39,7 @@ export async function POST(request) {
 
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "A1:O1",
+      range: "A1:P1",
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [
@@ -57,6 +57,7 @@ export async function POST(request) {
             formData.transId,
             formData.mobile,
             ticketId,
+            amount,
             currentTime,
             currentDateFormatted,
           ],
