@@ -12,7 +12,8 @@ import DropdownContainer from "../Buttons/Dropdown";
 import { Preference } from "../../utils/data";
 import NotFound from "../../app/not-found";
 import BuyTicketRedirect from "./BuyTicketRedirect";
-import { QRCode } from "antd";
+import { QRCode, message } from "antd";
+import { IconCopy } from "@tabler/icons-react";
 
 const RadionInput =
   "before:content[''] peer relative h-4 w-4 cursor-pointer appearance-none rounded-full border border-zinc-700  p-0  transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-100 checked:before:bg-gray-100 hover:before:opacity-0";
@@ -67,6 +68,25 @@ export function Form() {
   });
   const [loading, setLoading] = useState(false);
   const [redirectLoading, setRedirectLoading] = useState(false);
+  // const [messageApi, contextHolder] = message.useMessage();
+  // const success = () => {
+  //   messageApi.open({
+  //     type: "success",
+  //     content: "Copied to clipboard!",
+  //   });
+  // };
+
+  const handleCopy = () => {
+    navigator.clipboard
+      .writeText("6282560679@jupiteraxis")
+      .then(() => {
+        // alert("Copied to clipboard!");
+        message.success("Copied to clipboard!");
+      })
+      .catch((error) => {
+        console.error("Failed to copy:", error);
+      });
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -341,7 +361,7 @@ export function Form() {
               </p>
             </div>
 
-            <div className="flex justify-between gap-6 items-center mt-5 mb-7">
+            <div className="flex flex-col md:flex-row justify-between gap-4 items-center mt-5 mb-7 ">
               <div className="w-fit h-40 bg-white str">
                 <QRCode
                   value={
@@ -353,13 +373,19 @@ export function Form() {
               <p>OR</p>
               <div>
                 <p>Account Details</p>
-                <p>
+                <div>
                   Name: Rihan Sajeer <br /> Account number: 77770125241139{" "}
                   <br />
                   IFSC Code: FDRL0007777
                   <br /> Branch: Neo Banking - Jupiter
-                  <br /> UPI handle: 6282560679@jupiteraxis
-                </p>
+                  <br />
+                  <div className="flex gap-3 justify-center items-center">
+                    <p>UPI ID: 6282560679@jupiteraxis</p>
+                    <button type="button" onClick={handleCopy}>
+                      <IconCopy stroke={2} />
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -371,7 +397,7 @@ export function Form() {
                 onChange={(e) => setTransId(e.target.value)}
                 id="transId"
                 placeholder="Please enter transaction id after payment completion"
-                type="text"
+                type="number"
                 required
               />
             </LabelInputContainer>
