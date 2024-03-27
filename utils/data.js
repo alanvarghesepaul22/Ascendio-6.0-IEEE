@@ -64,31 +64,35 @@ export const queryContactEmail = "ascendio6.0@gmail.com";
 export const SpeakerData = [
   {
     id: 1,
-    imageUrl: "/SpeakerImages/spkr1.png",
-    name: "Gokul C M",
-    designation: "Founder & CEO, GADS LLP",
-    description:
-      "Meet Gokul C M, our dynamic speaker who embodies a blend of exceptional client and business relationship management skills, coupled with adept stress and time management abilities. With a rich background in leadership, people management, and entrepreneurial ventures spanning B2B and B2G services, Gokul thrives on embracing new challenges and finding innovative solutions. A passionate developer, they remain at the forefront of modern technology, fueled by a genuine curiosity and dedication to continuous learning. Committed to community engagement, Gokul actively volunteers in technical spheres and social causes, fostering connections with professionals and like-minded individuals, all while striving to create a positive impact on society.",
-    linkedinUrl: "https://www.linkedin.com/in/gokulcm/",
-  },
-  {
-    id: 2,
-    imageUrl: "/SpeakerImages/spkr2.png",
-    name: "Devanand A",
-    designation: "Co-Founder & COO,GADS LLP",
-    description:
-      "Meet Devanand A, Founder & COO at GADS, our dynamic speaker who embodies a blend of exceptional client and business relationship management skills, coupled with adept stress and time management abilities. With a rich background in leadership, people management, and entrepreneurial ventures spanning B2B and B2G services, Devanand thrives on embracing new challenges and finding innovative solutions. A passionate developer, they remain at the forefront of modern technology, fueled by a genuine curiosity and dedication to continuous learning. Committed to community engagement, Devanand actively volunteers in technical spheres and social causes, fostering connections with professionals and like-minded individuals, all while striving to create a positive impact on society.",
-    linkedinUrl: "https://www.linkedin.com/in/1devanand/",
-  },
-  {
-    id: 3,
     imageUrl: "/SpeakerImages/spkr3.png",
     name: "Senthil Nath R",
     designation: "Social Media Influencer",
     description:
       "Step into the world of inspiration and creativity with Senthil Nath R, the force behind the captivating Instagram journey found at @senthil_kats_. As a seasoned Social Media Influencer, Senthil curates a vibrant tapestry of content that seamlessly blends lifestyle, travel, and thought-provoking insights. With an eye for aesthetics and a passion for storytelling, he invites followers on a visual odyssey, showcasing the beauty of everyday moments and the power of positive living. Through his engaging posts and authentic voice, Senthil fosters a sense of community, sparking conversations and connections that transcend boundaries. Join the journey, and let Senthil inspire you to embrace life's adventures and spread joy one post at a time.",
     linkedinUrl: "https://www.instagram.com/senthil_kats_/",
+    section: "Talk",
   },
+  {
+    id: 2,
+    imageUrl: "/SpeakerImages/spkr1.png",
+    name: "Gokul C M",
+    designation: "Founder & CEO, GADS LLP",
+    description:
+      "Meet Gokul C M, our dynamic speaker who embodies a blend of exceptional client and business relationship management skills, coupled with adept stress and time management abilities. With a rich background in leadership, people management, and entrepreneurial ventures spanning B2B and B2G services, Gokul thrives on embracing new challenges and finding innovative solutions. A passionate developer, they remain at the forefront of modern technology, fueled by a genuine curiosity and dedication to continuous learning. Committed to community engagement, Gokul actively volunteers in technical spheres and social causes, fostering connections with professionals and like-minded individuals, all while striving to create a positive impact on society.",
+    linkedinUrl: "https://www.linkedin.com/in/gokulcm/",
+    section: "Talk",
+  },
+  {
+    id: 3,
+    imageUrl: "/SpeakerImages/spkr2.png",
+    name: "Devanand A",
+    designation: "Co-Founder & COO,GADS LLP",
+    description:
+      "Meet Devanand A, Founder & COO at GADS, our dynamic speaker who embodies a blend of exceptional client and business relationship management skills, coupled with adept stress and time management abilities. With a rich background in leadership, people management, and entrepreneurial ventures spanning B2B and B2G services, Devanand thrives on embracing new challenges and finding innovative solutions. A passionate developer, they remain at the forefront of modern technology, fueled by a genuine curiosity and dedication to continuous learning. Committed to community engagement, Devanand actively volunteers in technical spheres and social causes, fostering connections with professionals and like-minded individuals, all while striving to create a positive impact on society.",
+    linkedinUrl: "https://www.linkedin.com/in/1devanand/",
+    section: "Talk",
+  },
+
   {
     id: 4,
     imageUrl: "/SpeakerImages/spkr4.png",
@@ -97,6 +101,7 @@ export const SpeakerData = [
     description:
       "Meet Lathif Penath, a Consultant Psychologist and Assistant Professor, whose expertise spans both academia and practical application in the field of psychology. With seven years of experience as a psychology lecturer at the college level, Lathif has cultivated a deep understanding of the human mind and behaviour. As a freelance psychologist for the past seven years, they have provided invaluable support to individuals seeking mental wellness. Lathif's passion for empowering others extends beyond the classroom, as evidenced by their adeptness in organising influential programs for students and serving as a resource person in various workshops, seminars, and webinars. With a commitment to promoting mental health awareness and facilitating personal growth, Lathif Penath stands as a beacon of guidance and support in the realm of psychology.",
     linkedinUrl: "https://www.instagram.com/lathifpenath?igsh=Ymc4dDd4ZnRhdGJr",
+    section: "Talk",
   },
   {
     id: 5,
@@ -106,6 +111,27 @@ export const SpeakerData = [
     description:
       " Meet Akarsh Ashok, a Research Associate at Amrita Vishwa Vidyapeetham in Coimbatore, specialising in cybersecurity and recognized as a Snapchat Opinion Leader at Under 25 Universe. Akarsh's expertise lies in leveraging cutting-edge technologies like Lense Studio and Flutter to craft interactive and engaging content. With a keen eye for innovation, he utilises Lense Studio to create captivating visual experiences, while his proficiency in Flutter enables him to develop cross-platform interactive apps. As a dynamic content creator, Akarsh seamlessly integrates these tools to captivate audiences and drive meaningful engagement on social media platforms.",
     linkedinUrl: "https://www.linkedin.com/in/akarsh-ashok/",
+    section: "Workshop",
+  },
+  {
+    id: 6,
+    imageUrl: "/SpeakerImages/spkr6.png",
+    name: "Megna Sudeep",
+    designation: "Big Data Engineer, TCS",
+    description:
+      "Introducing Megna Sudeep, a proficient Big Data Engineer hailing from TCS. Join Megna in an illuminating workshop where she'll unravel the mysteries of data analytics. With her expertise, participants will navigate the intricacies of data management and analysis, gaining invaluable insights into its practical applications across diverse industries. Don't miss this exclusive opportunity to learn from Megna Sudeep, a trailblazer in the realm of Big Data!",
+    linkedinUrl: "https://www.linkedin.com/in/megna-sudeep/",
+    section: "Workshop",
+  },
+  {
+    id: 7,
+    imageUrl: "/SpeakerImages/spkr7.png",
+    name: "Indrajith VS",
+    designation: "FPV Racer and licensed pilot",
+    description:
+      "Introducing Indrajith V S, an eminent FPV racer and licensed pilot with a profound love for the skies. Embark on a thrilling exploration of Drone Technology guided by his extensive experience and boundless enthusiasm. In his workshop, Indrajith goes beyond conventional flight, immersing participants in the art of aerial photography, videography, and the myriad applications that span across industries. Whether you're an aspiring hobbyist or a seasoned professional, Indrajith's workshop offers a dynamic blend of practical insights and hands-on experience. Join us for an enlightening session that promises to ignite your passion for flight and unveil the limitless possibilities of drone technology.",
+    linkedinUrl: "https://www.instagram.com/indrajith_vs/",
+    section: "Workshop",
   },
 ];
 
@@ -129,7 +155,7 @@ export const WorkshopData = [
   {
     id: 3,
     imageUrl: "/WorkshopImages/Drone.jpg",
-    name: "Hover High - Drone Expo",
+    name: "Drone Expo",
     designation: "Indrajith VS",
     description:
       "Experience the world of Drone Technology with our exciting Drone Workshop, led by FPV racer and licensed pilot, Indrajith V S. This immersive session goes beyond flying drones; it delves into aerial photography, videography, and the wide-ranging applications in various industries. Whether you're a hobbyist or a professional, this workshop caters to all skill levels. Join us for a memorable journey into the skies, where you'll gain practical knowledge, hands-on experience, and a new perspective on flight's endless possibilities.",
@@ -137,7 +163,7 @@ export const WorkshopData = [
   {
     id: 4,
     imageUrl: "/WorkshopImages/SectionLevelCoding.jpg",
-    name: "CAECUS - Coding Competition",
+    name: "CRYPTIQ - Coding Competition",
     designation: "IEEE SSET Team",
     description:
       "Caecus is a jumbled coding competition that allows you to think, create and solve problems in endless ways. The event emphasizes  on the power of teamwork where everyone's  skill contributes to the success of the project. Participating teams will have to go through 2 rounds and the winning team will be awarded with cash prizes.",
@@ -563,7 +589,6 @@ export const Preference = [
     title: "Coding Competition",
   },
 ];
-
 
 export const MoreInfoData = [
   {

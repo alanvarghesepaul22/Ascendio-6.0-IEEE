@@ -19,7 +19,7 @@ const JumpingCard = ({ id, imageUrl, name, designation, linkedinUrl }) => {
       }}
       whileHover={{ y: -10 }}
       transition={{ type: "spring", stiffness: 300 }}
-      className="bg-neutral-900/50 w-80 h-auto flex flex-col justify-center items-center rounded-lg"
+      className="bg-neutral-900/50 w-72 h-auto flex flex-col justify-center items-center rounded-lg"
     >
       <div className="h-full w-full relative">
         <Image
@@ -47,20 +47,20 @@ const JumpingCard = ({ id, imageUrl, name, designation, linkedinUrl }) => {
           </div>
         </motion.div>
       </div>
-      <div className="w-full h-full flex items-end justify-between gap-4 p-4">
-        <div>
-          <h1 className="text-lg font-medium text-neutral-200">{name}</h1>
-          <p className="w-full text-neutral-400 text-sm">{designation}</p>
+      <div className="w-full h-full flex items-start justify-between gap-4 p-4">
+        <div className="flex flex-col items-start">
+          <h1 className=" font-medium text-neutral-200">{name}</h1>
+          <p className="w-full text-neutral-400 text-xs">{designation}</p>
         </div>
         {linkedinUrl.includes("instagram") ? (
-          <Link href={linkedinUrl}>
+          <Link href={linkedinUrl} target="blank">
             <IconBrandInstagram
               stroke={1.5}
               className="text-neutral-400 h-8 w-8 hover:text-neutral-500"
             />
           </Link>
         ) : (
-          <Link href={linkedinUrl}>
+          <Link href={linkedinUrl} target="blank">
             <IconBrandLinkedin
               stroke={1.5}
               className="text-neutral-400 h-8 w-8 hover:text-neutral-500"

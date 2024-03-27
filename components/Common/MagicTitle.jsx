@@ -20,7 +20,7 @@ const MagicTitle = ({ children, className }) => {
       }}
       className={cn(
         className,
-        "z-30 text-2xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 bg-opacity-50"
+        "z-30 text-2xl md:text-3xl lg:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 bg-opacity-50"
       )}
     >
       {children.split("").map((child, idx) => (

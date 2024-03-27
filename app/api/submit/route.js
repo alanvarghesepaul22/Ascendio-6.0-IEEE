@@ -39,7 +39,7 @@ export async function POST(request) {
 
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "A1:L1",
+      range: "A1:M1",
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [
@@ -50,9 +50,10 @@ export async function POST(request) {
             formData.mobnum,
             formData.clgname,
             formData?.ieeeid,
-            formData.wrksp,
+            formData.wrksp1,
+            formData.wrksp2,
             formData.food,
-            formData.tshirt,
+            formData.transId,
             ticketId,
             currentTime,
             currentDateFormatted,

@@ -10,8 +10,9 @@ import RadioBtn, { RadioBtnContainer } from "../Buttons/RadioBtn";
 import { useRouter } from "next/navigation";
 import DropdownContainer from "../Buttons/Dropdown";
 import { Preference } from "../../utils/data";
-import NotFound from "../../app/not-found"
+import NotFound from "../../app/not-found";
 import BuyTicketRedirect from "./BuyTicketRedirect";
+import { QRCode } from "antd";
 
 const RadionInput =
   "before:content[''] peer relative h-4 w-4 cursor-pointer appearance-none rounded-full border border-zinc-700  p-0  transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-100 checked:before:bg-gray-100 hover:before:opacity-0";
@@ -32,25 +33,26 @@ function generateTicketId(length) {
 export function Form() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  if(true){
-    return(
-      <BuyTicketRedirect/>
-    )
-  }
+  // if(true){
+  //   return(
+  //     <BuyTicketRedirect/>
+  //   )
+  // }
 
   const amount = parseInt(searchParams.get("amount"));
 
-  if(!amount){
-    return(
+  if (!amount) {
+    return (
       <>
-      <NotFound/>
+        <NotFound />
       </>
-    )
+    );
   }
 
   const [firstname, setFirstname] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [transId, setTransId] = useState("");
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -58,9 +60,10 @@ export function Form() {
     mobnum: "",
     clgname: "",
     ieeeid: "",
-    wrksp: "",
+    wrksp1: "",
+    wrksp2: "",
     food: "",
-    tshirt: "",
+    transId: "",
   });
   const [loading, setLoading] = useState(false);
   const [redirectLoading, setRedirectLoading] = useState(false);
@@ -72,99 +75,117 @@ export function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    makePayment();
+    // makePayment();
+    submitForm();
   };
 
-  const initializeRazorpay = () => {
-    return new Promise((resolve) => {
-      const script = document.createElement("script");
-      script.src = "https://checkout.razorpay.com/v1/checkout.js";
-
-      script.onload = () => {
-        resolve(true);
-      };
-      script.onerror = () => {
-        resolve(false);
-      };
-
-      document.body.appendChild(script);
-    });
-  };
-
-  const makePayment = async () => {
-    setLoading(true);
-    const res = await initializeRazorpay();
-    if (!res) {
-      alert("Razorpay SDK Failed to load");
-      return;
+  const submitForm = async () => {
+    try {
+      setLoading(true);
+      const ticketId = generateTicketId(8);
+      console.log("Ticket ID: ", ticketId);
+      await axios
+        .post("/api/send", { amount, formData, ticketId, email })
+        .then((res) => console.log("Email Sent"));
+      await axios
+        .post("/api/submit", { formData, ticketId })
+        .then((res) => console.log("Detials added"));
+      router.push(`/payment-success?email=${email}&ticketId=${ticketId}`);
+    } catch (error) {
+    } finally {
+      setLoading(false);
     }
-    // Amount is in currency subunits. Hence, multiply by 100 to get the actual amount
-    // Make API call to the serverless API
-    console.log("amount", amount);
-    const response = await axios.post(`/api/createOrder`, {
-      amount,
-    });
-    const data = response.data.order;
-    // setOrderID(data.id)
-
-    let options = {
-      key: razorpayKEY, // Enter the Key ID generated from the Dashboard
-      name: "Ascendio",
-      currency: data.currency,
-      amount: data.amount,
-      order_id: data.id,
-      description: `Thank you`,
-      // image: "https://manuarora.in/logo.png",
-      handler: function (response) {
-        try {
-          const res = axios
-            .post(`/api/verifyOrder`, {
-              total: amount * 100,
-              razorpay_payment_id: response.razorpay_payment_id,
-              razorpay_order_id: response.razorpay_order_id,
-            })
-            .then((res) => {
-              if (
-                res.status == 200 &&
-                res.data.message == "Payment successful"
-              ) {
-                console.log("Payment successful");
-                const ticketId = generateTicketId(8);
-                console.log("Ticket ID: ", ticketId);
-                axios
-                  .post("/api/send", { amount, formData, ticketId, email })
-                  .then((res) => console.log("Email Sent"));
-                axios
-                  .post("/api/submit", { formData, ticketId })
-                  .then((res) => console.log("Detials added"));
-                router.push(
-                  `/payment-success?email=${email}&ticketId=${ticketId}`
-                );
-              }
-            });
-        } catch (err) {
-          console.log("error", err);
-        } finally {
-        }
-      },
-      prefill: {
-        name: firstname,
-        email,
-        contact: phone,
-      },
-      modal: {
-        ondismiss: function () {
-          console.log("closed");
-        },
-      },
-    };
-
-    const paymentObject = new window.Razorpay(options);
-    paymentObject.open();
-    setRedirectLoading(true);
-    setLoading(false);
   };
-  //
+
+  // const initializeRazorpay = () => {
+  //   return new Promise((resolve) => {
+  //     const script = document.createElement("script");
+  //     script.src = "https://checkout.razorpay.com/v1/checkout.js";
+
+  //     script.onload = () => {
+  //       resolve(true);
+  //     };
+  //     script.onerror = () => {
+  //       resolve(false);
+  //     };
+
+  //     document.body.appendChild(script);
+  //   });
+  // };
+
+  // const makePayment = async () => {
+  //   setLoading(true);
+  //   const res = await initializeRazorpay();
+  //   if (!res) {
+  //     alert("Razorpay SDK Failed to load");
+  //     return;
+  //   }
+  //   // Amount is in currency subunits. Hence, multiply by 100 to get the actual amount
+  //   // Make API call to the serverless API
+  //   console.log("amount", amount);
+  //   const response = await axios.post(`/api/createOrder`, {
+  //     amount,
+  //   });
+  //   const data = response.data.order;
+  //   // setOrderID(data.id)
+
+  //   let options = {
+  //     key: razorpayKEY, // Enter the Key ID generated from the Dashboard
+  //     name: "Ascendio",
+  //     currency: data.currency,
+  //     amount: data.amount,
+  //     order_id: data.id,
+  //     description: `Thank you`,
+  //     // image: "https://manuarora.in/logo.png",
+  //     handler: function (response) {
+  //       try {
+  //         const res = axios
+  //           .post(`/api/verifyOrder`, {
+  //             total: amount * 100,
+  //             razorpay_payment_id: response.razorpay_payment_id,
+  //             razorpay_order_id: response.razorpay_order_id,
+  //           })
+  //           .then((res) => {
+  //             if (
+  //               res.status == 200 &&
+  //               res.data.message == "Payment successful"
+  //             ) {
+  //               console.log("Payment successful");
+  //               const ticketId = generateTicketId(8);
+  //               console.log("Ticket ID: ", ticketId);
+  //               axios
+  //                 .post("/api/send", { amount, formData, ticketId, email })
+  //                 .then((res) => console.log("Email Sent"));
+  //               axios
+  //                 .post("/api/submit", { formData, ticketId })
+  //                 .then((res) => console.log("Detials added"));
+  //               router.push(
+  //                 `/payment-success?email=${email}&ticketId=${ticketId}`
+  //               );
+  //             }
+  //           });
+  //       } catch (err) {
+  //         console.log("error", err);
+  //       } finally {
+  //       }
+  //     },
+  //     prefill: {
+  //       name: firstname,
+  //       email,
+  //       contact: phone,
+  //     },
+  //     modal: {
+  //       ondismiss: function () {
+  //         console.log("closed");
+  //       },
+  //     },
+  //   };
+
+  //   const paymentObject = new window.Razorpay(options);
+  //   paymentObject.open();
+  //   setRedirectLoading(true);
+  //   setLoading(false);
+  // };
 
   return (
     <div>
@@ -230,7 +251,7 @@ export function Form() {
                 required
               />
             </LabelInputContainer>
-            <LabelInputContainer className={amount == 1500 ? "mb-4" : "mb-0"}>
+            <LabelInputContainer className={amount == 1100 ? "mb-4" : "mb-0"}>
               <Label htmlFor="clgname">College name</Label>
               <Input
                 name="clgname"
@@ -241,48 +262,25 @@ export function Form() {
               />
             </LabelInputContainer>
             <LabelInputContainer className="mb-4">
-              {amount == 1500 && <Label htmlFor="ieeeid">IEEE ID</Label>}
+              {amount == 1100 && <Label htmlFor="ieeeid">IEEE ID</Label>}
               <Input
                 name="ieeeid"
                 id="ieeeid"
-                type={amount == "1500" ? "number" : "hidden"}
+                type={amount == "1100" ? "number" : "hidden"}
                 placeholder="Your IEEE Id here"
                 required
               />
             </LabelInputContainer>
-            {/* <LabelInputContainer className="mb-4">
-              <Label htmlFor="wrksp1">Workshop Preference</Label>
-
-              <RadioBtnContainer className={"sm:grid-cols-2"}>
-                <RadioBtn Label={"Workshop 1"} htmlFor={"wrksp1"}>
-                  <input
-                    name="wrksp"
-                    id="wrksp1"
-                    type="radio"
-                    value={"Workshop 1"}
-                    className={RadionInput}
-                    required
-                  />
-                </RadioBtn>
-                <RadioBtn Label={"Workshop 2"} htmlFor={"wrksp2"}>
-                  <input
-                    name="wrksp"
-                    id="wrksp2"
-                    type="radio"
-                    value={"Workshop 2"}
-                    className={RadionInput}
-                    required
-                  />
-                </RadioBtn>
-              </RadioBtnContainer>
-            </LabelInputContainer> */}
 
             <LabelInputContainer className="mb-4">
               <Label htmlFor="wrksp1">Workshop Preference</Label>
 
               <RadioBtnContainer className={"sm:grid-cols-2"}>
                 <DropdownContainer>
-                  <select class="block appearance-none w-full bg-zinc-800 text-white text-sm px-4 py-2 pr-8 rounded-md shadow-sm focus:outline-none transition duration-300 ease-in-out">
+                  <select
+                    name="wrksp1"
+                    class="block appearance-none w-full bg-zinc-800 text-white text-sm px-4 py-2 pr-8 rounded-md shadow-sm focus:outline-none transition duration-300 ease-in-out"
+                  >
                     <option value="" selected disabled hidden>
                       Preference 1
                     </option>
@@ -294,7 +292,10 @@ export function Form() {
                   </select>
                 </DropdownContainer>
                 <DropdownContainer>
-                  <select class="block appearance-none w-full bg-zinc-800 text-white text-sm px-4 py-2 pr-8 rounded-md shadow-sm focus:outline-none transition duration-300 ease-in-out">
+                  <select
+                    name="wrksp2"
+                    class="block appearance-none w-full bg-zinc-800 text-white text-sm px-4 py-2 pr-8 rounded-md shadow-sm focus:outline-none transition duration-300 ease-in-out"
+                  >
                     <option value="" selected disabled hidden>
                       Preference 2
                     </option>
@@ -332,60 +333,47 @@ export function Form() {
                 </RadioBtn>
               </RadioBtnContainer>
             </LabelInputContainer>
+            <div className="mt-10">
+              <p>Payment Details</p>
+              <p>
+                After completing the payment process, please return to this page
+                and enter the transaction ID to finalize your ticket purchase.
+              </p>
+            </div>
+
+            <div className="flex justify-between gap-6 items-center mt-5 mb-7">
+              <div className="w-fit h-40 bg-white str">
+                <QRCode
+                  value={
+                    `upi://pay?pa=6282560679@jupiteraxis&pn=Rihan Sajeer&am=${amount}&cu=INR` ||
+                    "-"
+                  }
+                />
+              </div>
+              <p>OR</p>
+              <div>
+                <p>Account Details</p>
+                <p>
+                  Name: Rihan Sajeer <br /> Account number: 77770125241139{" "}
+                  <br />
+                  IFSC Code: FDRL0007777
+                  <br /> Branch: Neo Banking - Jupiter
+                  <br /> UPI handle: 6282560679@jupiteraxis
+                </p>
+              </div>
+            </div>
+
             <LabelInputContainer className="mb-4">
-              <Label htmlFor="tshirt">T-Shirt Size</Label>
-              <RadioBtnContainer className={"grid-cols-3"}>
-                <RadioBtn Label={"S"} htmlFor={"tsize1"}>
-                  <input
-                    name="tshirt"
-                    id="tsize1"
-                    type="radio"
-                    value={"S"}
-                    className={RadionInput}
-                    required
-                  />
-                </RadioBtn>
-                <RadioBtn Label={"M"} htmlFor={"tsize2"}>
-                  <input
-                    name="tshirt"
-                    id="tsize2"
-                    type="radio"
-                    value={"M"}
-                    className={RadionInput}
-                    required
-                  />
-                </RadioBtn>
-                <RadioBtn Label={"L"} htmlFor={"tsize3"}>
-                  <input
-                    name="tshirt"
-                    id="tsize3"
-                    type="radio"
-                    value={"L"}
-                    className={RadionInput}
-                    required
-                  />
-                </RadioBtn>
-                <RadioBtn Label={"XL"} htmlFor={"tsize4"}>
-                  <input
-                    name="tshirt"
-                    id="tsize4"
-                    type="radio"
-                    value={"XL"}
-                    className={RadionInput}
-                    required
-                  />
-                </RadioBtn>
-                <RadioBtn Label={"XXL"} htmlFor={"tsize5"}>
-                  <input
-                    name="tshirt"
-                    id="tsize5"
-                    type="radio"
-                    value={"XXL"}
-                    className={RadionInput}
-                    required
-                  />
-                </RadioBtn>
-              </RadioBtnContainer>
+              <Label htmlFor="transId">Transaction ID:</Label>
+              <Input
+                name="transId"
+                value={transId}
+                onChange={(e) => setTransId(e.target.value)}
+                id="transId"
+                placeholder="Please enter transaction id after payment completion"
+                type="text"
+                required
+              />
             </LabelInputContainer>
 
             <button
@@ -399,7 +387,7 @@ export function Form() {
                   <div className="h-4 w-4 border-2 border-y-yellow-400 border-zinc-600 animate-spin rounded-full"></div>
                 </>
               ) : (
-                "Continue"
+                "Submit"
               )}
               <BottomGradient />
             </button>

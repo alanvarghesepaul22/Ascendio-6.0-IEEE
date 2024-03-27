@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 const page = ({ params }) => {
-  if (params.id > SpeakerData.length) {
+  if (params.id > SpeakerData.length ) {
     return (
       <>
         <NotFound />
