@@ -49,7 +49,7 @@ const PriceCard = ({ amount, title, description, benefits }) => {
           </p>
           <div className="w-full flex flex-col gap-3 text-neutral-300 mb-7">
             {benefits.map((item) => (
-              <>
+              <div key={item.id}>
                 {item.isBenefited ? (
                   <div className="flex items-center gap-4">
                     <IconCheck stroke={2} />
@@ -61,7 +61,7 @@ const PriceCard = ({ amount, title, description, benefits }) => {
                     <p>{item.title}</p>
                   </div>
                 )}
-              </>
+              </div>
             ))}
           </div>
 

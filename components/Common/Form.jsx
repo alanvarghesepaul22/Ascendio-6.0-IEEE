@@ -54,6 +54,7 @@ export function Form() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [transId, setTransId] = useState("");
+  const [mobile, setMobile] = useState("");
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -63,24 +64,18 @@ export function Form() {
     ieeeid: "",
     wrksp1: "",
     wrksp2: "",
+    wrksp3: "",
     food: "",
     transId: "",
+    mobile: "",
   });
   const [loading, setLoading] = useState(false);
   const [redirectLoading, setRedirectLoading] = useState(false);
-  // const [messageApi, contextHolder] = message.useMessage();
-  // const success = () => {
-  //   messageApi.open({
-  //     type: "success",
-  //     content: "Copied to clipboard!",
-  //   });
-  // };
 
   const handleCopy = () => {
     navigator.clipboard
       .writeText("6282560679@jupiteraxis")
       .then(() => {
-        // alert("Copied to clipboard!");
         message.success("Copied to clipboard!");
       })
       .catch((error) => {
@@ -295,15 +290,13 @@ export function Form() {
             <LabelInputContainer className="mb-4">
               <Label htmlFor="wrksp1">Workshop Preference</Label>
 
-              <RadioBtnContainer className={"sm:grid-cols-2"}>
+              <RadioBtnContainer className={"sm:grid-cols-3"}>
                 <DropdownContainer>
                   <select
                     name="wrksp1"
-                    class="block appearance-none w-full bg-zinc-800 text-white text-sm px-4 py-2 pr-8 rounded-md shadow-sm focus:outline-none transition duration-300 ease-in-out"
+                    className="block appearance-none w-full bg-zinc-800 text-white text-sm px-4 py-2 pr-8 rounded-md shadow-sm focus:outline-none transition duration-300 ease-in-out"
                   >
-                    <option value="" selected disabled hidden>
-                      Preference 1
-                    </option>
+                    <option defaultValue="Not Selected">Preference 1</option>
                     {Preference.map((item) => (
                       <option key={item.id} value={item.title}>
                         {item.title}
@@ -314,11 +307,22 @@ export function Form() {
                 <DropdownContainer>
                   <select
                     name="wrksp2"
-                    class="block appearance-none w-full bg-zinc-800 text-white text-sm px-4 py-2 pr-8 rounded-md shadow-sm focus:outline-none transition duration-300 ease-in-out"
+                    className="block appearance-none w-full bg-zinc-800 text-white text-sm px-4 py-2 pr-8 rounded-md shadow-sm focus:outline-none transition duration-300 ease-in-out"
                   >
-                    <option value="" selected disabled hidden>
-                      Preference 2
-                    </option>
+                    <option defaultValue="Not Selected">Preference 2</option>
+                    {Preference.map((item) => (
+                      <option key={item.id} value={item.title}>
+                        {item.title}
+                      </option>
+                    ))}
+                  </select>
+                </DropdownContainer>
+                <DropdownContainer>
+                  <select
+                    name="wrksp3"
+                    className="block appearance-none w-full bg-zinc-800 text-white text-sm px-4 py-2 pr-8 rounded-md shadow-sm focus:outline-none transition duration-300 ease-in-out"
+                  >
+                    <option defaultValue="Not Selected">Preference 3</option>
                     {Preference.map((item) => (
                       <option key={item.id} value={item.title}>
                         {item.title}
@@ -353,16 +357,17 @@ export function Form() {
                 </RadioBtn>
               </RadioBtnContainer>
             </LabelInputContainer>
+
             <div className="mt-10">
               <p>Payment Details</p>
-              <p>
+              <p className="text-sm text-neutral-400">
                 After completing the payment process, please return to this page
-                and enter the transaction ID to finalize your ticket purchase.
+                and enter the transaction ID to finalize your ticket purchase.
               </p>
             </div>
 
-            <div className="flex flex-col md:flex-row justify-between gap-4 items-center mt-5 mb-7 ">
-              <div className="w-fit h-40 bg-white str">
+            <div className="flex flex-col md:flex-row justify-between gap-4 items-center mt-8 mb-7 ">
+              <div className="w-fit h-40 bg-white rounded-md">
                 <QRCode
                   value={
                     `upi://pay?pa=6282560679@jupiteraxis&pn=Rihan Sajeer&am=${amount}&cu=INR` ||
@@ -370,17 +375,25 @@ export function Form() {
                   }
                 />
               </div>
-              <p>OR</p>
+              <p className="text-neutral-400">OR</p>
               <div>
-                <p>Account Details</p>
-                <div>
-                  Name: Rihan Sajeer <br /> Account number: 77770125241139{" "}
+                <p className="text-lg">Account Details</p>
+                <div className="text-neutral-300">
+                  <b>Name:</b> Rihan Sajeer <br /> Account number:
+                  77770125241139 <br />
+                  <b>IFSC Code:</b>
+                  FDRL0007777
+                  <br /> <b>Branch:</b> Neo Banking - Jupiter
                   <br />
-                  IFSC Code: FDRL0007777
-                  <br /> Branch: Neo Banking - Jupiter
-                  <br />
+                  <b>G-Pay Number :</b>
+                  6282560679
                   <div className="flex gap-3 justify-center items-center">
-                    <p>UPI ID: 6282560679@jupiteraxis</p>
+                    <p className="font-bold"> 
+                      UPI ID:{" "}
+                      <span className="text-blue-600">
+                        6282560679@jupiteraxis
+                      </span>{" "}
+                    </p>
                     <button type="button" onClick={handleCopy}>
                       <IconCopy stroke={2} />
                     </button>
@@ -390,13 +403,26 @@ export function Form() {
             </div>
 
             <LabelInputContainer className="mb-4">
-              <Label htmlFor="transId">Transaction ID:</Label>
+              <Label htmlFor="transId">UPI Transaction ID / UTR Number:</Label>
               <Input
                 name="transId"
                 value={transId}
                 onChange={(e) => setTransId(e.target.value)}
                 id="transId"
                 placeholder="Please enter transaction id after payment completion"
+                type="text"
+                required
+              />
+            </LabelInputContainer>
+
+            <LabelInputContainer className="mb-4">
+              <Label htmlFor="mobile">Mobile:</Label>
+              <Input
+                name="mobile"
+                value={mobile}
+                onChange={(e) => setMobile(e.target.value)}
+                id="mobile"
+                placeholder="Please enter the mobile number used for payment"
                 type="number"
                 required
               />

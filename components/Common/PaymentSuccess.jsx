@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { IconCircleCheckFilled } from "@tabler/icons-react";
+import { IconBrandWhatsapp, IconCircleCheckFilled } from "@tabler/icons-react";
 import Link from "next/link";
 import { queryContactEmail } from "../../utils/data";
 import { useSearchParams } from "next/navigation";
@@ -31,6 +31,14 @@ const PaymentSuccess = () => {
           been sent to <span className="font-bold">{email}</span>. It might take
           some time to deliver the email, please wait.
         </p>
+        <Link
+          href="https://chat.whatsapp.com/Hn2lPo0l80HDvP1v17kV9e"
+          target="blank"
+          className="flex gap-3 justify-center items-center rounded-md bg-green-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-600 mt-6 transition-all"
+        >
+          Join whatsapp group
+          <IconBrandWhatsapp stroke={2} />
+        </Link>
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Link
             href="/buy"
