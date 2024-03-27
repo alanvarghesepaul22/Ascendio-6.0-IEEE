@@ -619,4 +619,4 @@ export const MoreInfoData = [
 ];
 
 export const whatsappGroupLink =
-  "https://chat.whatsapp.com/Hn2lPo0l80HDvP1v17kV9e";
+  "https://chat.whatsapp.com/CIiD8d4figH3CGbgVy8mjU";
